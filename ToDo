@@ -1,0 +1,4 @@
+1. load tickers
+2. parse pricing / exchange data
+3. save alert settings to database ( Entity framework ).
+4. check feed against settings to determine thresholds for sending alerts
