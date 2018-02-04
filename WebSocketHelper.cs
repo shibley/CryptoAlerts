@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using WebSocket4Net;
 
 namespace CryptoAlerts
@@ -16,6 +17,7 @@ namespace CryptoAlerts
         private string _incomingMessage;
         private string _outgoingMessage;
         private string _errorMessage;
+        private List<AlertSetting> _aSettings;
 
         public WebSocketHelper(string url)
         {
@@ -40,6 +42,10 @@ namespace CryptoAlerts
             webSocket.Open();
             this._errorMessage = "";//reset error
             this._messageReceivedEvent.WaitOne();
+
+            //Manage Alert Settings
+            _aSettings = ManageAlerts.InitializeAlertSettings(message);
+
             return this._incomingMessage;
         }
 
@@ -52,6 +58,9 @@ namespace CryptoAlerts
         {
             this._incomingMessage = e.Message;
             this._messageReceivedEvent.Set();
+
+            //call to see if we need to send alerts
+            ManageAlerts.CheckAlerts(this._aSettings, this._incomingMessage);
             Console.WriteLine(this._incomingMessage);
         }
 
