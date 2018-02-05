@@ -60,6 +60,7 @@ namespace CryptoAlerts
 
             //call to see if we need to send alerts
             ManageAlerts.CheckAlerts(this._aSettings, this._incomingMessage);
+
             Console.WriteLine(this._incomingMessage);
         }
 

@@ -11,6 +11,12 @@ namespace CryptoAlerts
     {
         public List<AlertSetting> alertSettings;
         public string sRequest = "";
+
+        public ManageAlerts()
+        {
+
+        }
+
         public ManageAlerts(string sSubscriptionType)
         {
             sRequest = BuildRequest(sSubscriptionType);
@@ -31,7 +37,7 @@ namespace CryptoAlerts
         //    return alertSettings;
         //}
 
-        public static void CheckAlerts(List<AlertSetting> alertSettings, string sData)
+        public static async void CheckAlerts(List<AlertSetting> alertSettings, string sData)
         {
             //parse data to get current prices
             CryptoCurrencyUpdate cUpdate = Parse(sData);
@@ -47,20 +53,22 @@ namespace CryptoAlerts
                     foreach (AlertSetting aSetting in alertSettings)
                     {
                         //check for match
-                        if(aSetting.Exchanx.SName == cUpdate.ExchangeName 
+                        if (aSetting.Exchanx.SName == cUpdate.ExchangeName
                             && aSetting.CurrencyPair.SName == (cUpdate.CryptoCurrencyName + "/" + cUpdate.FiatCurrencyName))
                         {
                             //check for setting conditions
-
+                            //cUpdate.LastPrice
+                            await CreateAlert(1, "", "");
                         }
                     }
                 }
             }
         }
 
-        public static Alert CreateAlert(int iUserId, string sTitle, string sMessage)
+        public static async Task<Alert> CreateAlert(int iUserId, string sTitle, string sMessage)
         {
             Alert alert = new Alert();
+
             using (CryptoAlertsContext dbContext = new CryptoAlertsContext())
             {
                 alert.IUserId = iUserId;
@@ -68,7 +76,8 @@ namespace CryptoAlerts
                 alert.STitle = sTitle;
 
                 dbContext.Alerts.Add(alert);
-                dbContext.SaveChanges();
+                int id = await dbContext.SaveChangesAsync();
+
             }
 
             return alert;
@@ -91,7 +100,7 @@ namespace CryptoAlerts
 
                 int iCount = this.alertSettings.Count;
 
-                foreach(AlertSetting alertSetting in this.alertSettings)
+                foreach (AlertSetting alertSetting in this.alertSettings)
                 {
                     //build subscription string
                     string sSetting = "\"" + sSubcriptionType + "~" + alertSetting.Exchanx.SName;

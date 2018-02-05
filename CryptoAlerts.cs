@@ -503,6 +503,11 @@ namespace CryptoAlerts
         /// Parent User pointed by [Alerts].([IUserId]) (FK_Alerts_Users)
         /// </summary>
         public virtual User User { get; set; } // FK_Alerts_Users
+
+        public Alert()
+        {
+            DtCreated = System.DateTime.Now;
+        }
     }
 
     // AlertSettings
@@ -519,6 +524,7 @@ namespace CryptoAlerts
         public int? IUserId { get; set; } // iUserId
         public string STitle { get; set; } // sTitle (length: 100)
         public int? ICurrencyPairId { get; set; } // iCurrencyPairID
+        public bool BActive { get; set; } // bActive
 
         // Foreign keys
 
@@ -536,6 +542,12 @@ namespace CryptoAlerts
         /// Parent User pointed by [AlertSettings].([IUserId]) (FK_AlertSettings_Users)
         /// </summary>
         public virtual User User { get; set; } // FK_AlertSettings_Users
+
+        public AlertSetting()
+        {
+            DtCreated = System.DateTime.Now;
+            BActive = true;
+        }
     }
 
     // CurrencyPairs
@@ -670,6 +682,7 @@ namespace CryptoAlerts
             Property(x => x.IUserId).HasColumnName(@"iUserId").HasColumnType("int").IsOptional();
             Property(x => x.STitle).HasColumnName(@"sTitle").HasColumnType("nvarchar").IsOptional().HasMaxLength(100);
             Property(x => x.ICurrencyPairId).HasColumnName(@"iCurrencyPairID").HasColumnType("int").IsOptional();
+            Property(x => x.BActive).HasColumnName(@"bActive").HasColumnType("bit").IsRequired();
 
             // Foreign keys
             HasOptional(a => a.CurrencyPair).WithMany(b => b.AlertSettings).HasForeignKey(c => c.ICurrencyPairId).WillCascadeOnDelete(false); // FK_AlertSettings_CurrencyPairs
