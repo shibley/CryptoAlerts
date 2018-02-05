@@ -9,20 +9,27 @@ namespace CryptoAlerts
 {
     public class ManageAlerts
     {
-        public static List<AlertSetting> InitializeAlertSettings(string sData)
+        public List<AlertSetting> alertSettings;
+        public string sRequest = "";
+        public ManageAlerts(string sSubscriptionType)
         {
-            List<AlertSetting> alertSettings = new List<AlertSetting>();
-            //parse data to get exchanges and pairs
-            CryptoCurrencyUpdate cUpdate = Parse(sData);
-
-            if (cUpdate != null)
-            {
-                string sExchange = cUpdate.ExchangeName;
-                string sCurrencyPair = cUpdate.CryptoCurrencyName + "/" + cUpdate.FiatCurrencyName;
-            }
-
-            return alertSettings;
+            sRequest = BuildRequest(sSubscriptionType);
         }
+
+        //public static List<AlertSetting> InitializeAlertSettings(string sData)
+        //{
+        //    List<AlertSetting> alertSettings = new List<AlertSetting>();
+        //    //parse data to get exchanges and pairs
+        //    CryptoCurrencyUpdate cUpdate = Parse(sData);
+
+        //    if (cUpdate != null)
+        //    {
+        //        string sExchange = cUpdate.ExchangeName;
+        //        string sCurrencyPair = cUpdate.CryptoCurrencyName + "/" + cUpdate.FiatCurrencyName;
+        //    }
+
+        //    return alertSettings;
+        //}
 
         public static void CheckAlerts(List<AlertSetting> alertSettings, string sData)
         {
@@ -33,23 +40,21 @@ namespace CryptoAlerts
             {
                 string sExchange = cUpdate.ExchangeName;
                 string sCurrencyPair = cUpdate.CryptoCurrencyName + "/" + cUpdate.FiatCurrencyName;
-            }
 
-            if (alertSettings != null)
-            {
-                //loop through settings to see if we need to send any
-                foreach (AlertSetting aSetting in alertSettings)
+                if (alertSettings != null)
                 {
+                    //loop through settings to see if we need to send any
+                    foreach (AlertSetting aSetting in alertSettings)
+                    {
+                        //check for match
+                        if(aSetting.Exchanx.SName == cUpdate.ExchangeName 
+                            && aSetting.CurrencyPair.SName == (cUpdate.CryptoCurrencyName + "/" + cUpdate.FiatCurrencyName))
+                        {
+                            //check for setting conditions
 
+                        }
+                    }
                 }
-            }
-        }
-
-        public static List<AlertSetting> GetAlertSettings(int iPairID, int iExchangeId)
-        {
-            using (CryptoAlertsContext dbContext = new CryptoAlertsContext())
-            {
-                return dbContext.AlertSettings.Where(x => x.ICurrencyPairId == iPairID && x.IExchangeId == iExchangeId).ToList<AlertSetting>();               
             }
         }
 
@@ -73,23 +78,31 @@ namespace CryptoAlerts
         /// Builds string request from AlertSettings to be sent to CryptoCompare subscribe call
         /// sample output: "42[\"SubAdd\",{\"subs\":[\"0~Bitstamp~BTC~USD\",\"0~Coinbase~BTC~USD\"]}]"
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="sSubcriptionType"></param>
         /// <returns>Return null if parsing was not possible</returns>
-        public static string BuildRequest(string sSubcriptionType)
+        public string BuildRequest(string sSubcriptionType)
         {
-            string sRequest = "42[\"SubAdd\",{\"subs\":[";//\"0~Bitstamp~BTC~USD\",\"0~Coinbase~BTC~USD\"]}]";
+            string sRequest = "42[\"SubAdd\",{\"subs\":[";
+            //\"0~Bitstamp~BTC~USD\",\"0~Coinbase~BTC~USD\"]}]";
 
             using (CryptoAlertsContext dbContext = new CryptoAlertsContext())
             {
-                List<AlertSetting> alertSettings = dbContext.AlertSettings.Where(x => x.DtCreated == null).ToList<AlertSetting>();
+                this.alertSettings = dbContext.AlertSettings.Where(x => x.DtCreated == null).ToList<AlertSetting>();
 
-                foreach(AlertSetting alertSetting in alertSettings)
+                int iCount = this.alertSettings.Count;
+
+                foreach(AlertSetting alertSetting in this.alertSettings)
                 {
                     //build subscription string
                     string sSetting = "\"" + sSubcriptionType + "~" + alertSetting.Exchanx.SName;
                     sSetting += "~" + alertSetting.CurrencyPair.SName.Replace('/', '~') + "\"";
 
                     sRequest += sSetting;
+
+                    if (iCount > 1)
+                        sRequest += ",";
+
+                    iCount--;
                 }
 
                 sRequest += "]}]";
@@ -112,7 +125,7 @@ namespace CryptoAlerts
             CryptoCurrencyUpdate retVal = new CryptoCurrencyUpdate();
             var strValues = str.Substring(2).Split(',')[1].Split('~');
 
-            if (strValues[0].Substring(1) != "0")//could be 2?
+            if (strValues[0].Substring(1) != "0" && strValues[0].Substring(1) != "2")//could be 2?
                 return null;
 
             retVal.ExchangeName = strValues[1];

@@ -33,18 +33,17 @@ namespace CryptoAlerts
         {
             //resend and reopen
             if(string.IsNullOrEmpty(this._errorMessage))
-                Send(this._outgoingMessage);
+                Send(this._outgoingMessage, this._aSettings);
         }
 
-        public string Send(string message)
+        public string Send(string message, List<AlertSetting> alertSettings)
         {
             this._outgoingMessage = message;
             webSocket.Open();
             this._errorMessage = "";//reset error
             this._messageReceivedEvent.WaitOne();
 
-            //Manage Alert Settings
-            _aSettings = ManageAlerts.InitializeAlertSettings(message);
+            _aSettings = alertSettings;
 
             return this._incomingMessage;
         }
@@ -78,7 +77,7 @@ namespace CryptoAlerts
 
             //reinitialize
             WebSocketHelper wsh = new WebSocketHelper(sUrl);
-            wsh.Send(this._outgoingMessage);
+            wsh.Send(this._outgoingMessage, this._aSettings);
         }
     }
 }
