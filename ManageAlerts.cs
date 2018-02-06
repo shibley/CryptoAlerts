@@ -57,26 +57,33 @@ namespace CryptoAlerts
                             && aSetting.CurrencyPair.SName == (cUpdate.CryptoCurrencyName + "/" + cUpdate.FiatCurrencyName))
                         {
                             //check for setting conditions
-                            //cUpdate.LastPrice
-                            await CreateAlert(1, "", "");
+                            if(cUpdate.LastPrice > aSetting.PriceHigh)
+                                await CreateAlert(aSetting.IAlertSettingId, aSetting.IUserId.Value, "Price Up", "");
+
+                            else if (cUpdate.LastPrice < aSetting.PriceLow)
+                                await CreateAlert(aSetting.IAlertSettingId, aSetting.IUserId.Value, "Price Down", "");
+
                         }
                     }
                 }
             }
         }
 
-        public static async Task<Alert> CreateAlert(int iUserId, string sTitle, string sMessage)
+        public static async Task<Alert> CreateAlert(int iAlertSettingId, int iUserId, string sTitle, string sMessage)
         {
             Alert alert = new Alert();
 
             using (CryptoAlertsContext dbContext = new CryptoAlertsContext())
             {
+                alert.IAlertSettingId = iAlertSettingId;
                 alert.IUserId = iUserId;
                 alert.SMessage = sMessage;
                 alert.STitle = sTitle;
 
                 dbContext.Alerts.Add(alert);
                 int id = await dbContext.SaveChangesAsync();
+
+                Console.WriteLine("Alert table updated: " + id);
 
             }
 
@@ -96,7 +103,7 @@ namespace CryptoAlerts
 
             using (CryptoAlertsContext dbContext = new CryptoAlertsContext())
             {
-                this.alertSettings = dbContext.AlertSettings.Where(x => x.DtCreated == null).ToList<AlertSetting>();
+                this.alertSettings = dbContext.AlertSettings.Where(x => x.DtDeleted == null && x.BActive == true).ToList<AlertSetting>();
 
                 int iCount = this.alertSettings.Count;
 

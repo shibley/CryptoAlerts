@@ -496,8 +496,14 @@ namespace CryptoAlerts
         public int? IUserId { get; set; } // iUserId
         public string SMessage { get; set; } // sMessage (length: 500)
         public string STitle { get; set; } // sTitle (length: 100)
+        public int IAlertSettingId { get; set; } // iAlertSettingId
 
         // Foreign keys
+
+        /// <summary>
+        /// Parent AlertSetting pointed by [Alerts].([IAlertSettingId]) (FK_Alerts_AlertSettings)
+        /// </summary>
+        public virtual AlertSetting AlertSetting { get; set; } // FK_Alerts_AlertSettings
 
         /// <summary>
         /// Parent User pointed by [Alerts].([IUserId]) (FK_Alerts_Users)
@@ -526,6 +532,13 @@ namespace CryptoAlerts
         public int? ICurrencyPairId { get; set; } // iCurrencyPairID
         public bool BActive { get; set; } // bActive
 
+        // Reverse navigation
+
+        /// <summary>
+        /// Child Alerts where [Alerts].[iAlertSettingId] point to this entity (FK_Alerts_AlertSettings)
+        /// </summary>
+        public virtual System.Collections.Generic.ICollection<Alert> Alerts { get; set; } // Alerts.FK_Alerts_AlertSettings
+
         // Foreign keys
 
         /// <summary>
@@ -547,6 +560,7 @@ namespace CryptoAlerts
         {
             DtCreated = System.DateTime.Now;
             BActive = true;
+            Alerts = new System.Collections.Generic.List<Alert>();
         }
     }
 
@@ -652,9 +666,11 @@ namespace CryptoAlerts
             Property(x => x.IUserId).HasColumnName(@"iUserId").HasColumnType("int").IsOptional();
             Property(x => x.SMessage).HasColumnName(@"sMessage").HasColumnType("nvarchar").IsOptional().HasMaxLength(500);
             Property(x => x.STitle).HasColumnName(@"sTitle").HasColumnType("nvarchar").IsOptional().HasMaxLength(100);
+            Property(x => x.IAlertSettingId).HasColumnName(@"iAlertSettingId").HasColumnType("int").IsRequired();
 
             // Foreign keys
             HasOptional(a => a.User).WithMany(b => b.Alerts).HasForeignKey(c => c.IUserId).WillCascadeOnDelete(false); // FK_Alerts_Users
+            HasRequired(a => a.AlertSetting).WithMany(b => b.Alerts).HasForeignKey(c => c.IAlertSettingId).WillCascadeOnDelete(false); // FK_Alerts_AlertSettings
         }
     }
 
