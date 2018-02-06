@@ -12,30 +12,12 @@ namespace CryptoAlerts
         public List<AlertSetting> alertSettings;
         public string sRequest = "";
 
-        public ManageAlerts()
-        {
-
-        }
+        public ManageAlerts() { }
 
         public ManageAlerts(string sSubscriptionType)
         {
             sRequest = BuildRequest(sSubscriptionType);
         }
-
-        //public static List<AlertSetting> InitializeAlertSettings(string sData)
-        //{
-        //    List<AlertSetting> alertSettings = new List<AlertSetting>();
-        //    //parse data to get exchanges and pairs
-        //    CryptoCurrencyUpdate cUpdate = Parse(sData);
-
-        //    if (cUpdate != null)
-        //    {
-        //        string sExchange = cUpdate.ExchangeName;
-        //        string sCurrencyPair = cUpdate.CryptoCurrencyName + "/" + cUpdate.FiatCurrencyName;
-        //    }
-
-        //    return alertSettings;
-        //}
 
         public static async void CheckAlerts(List<AlertSetting> alertSettings, string sData)
         {
@@ -75,16 +57,23 @@ namespace CryptoAlerts
 
             using (CryptoAlertsContext dbContext = new CryptoAlertsContext())
             {
-                alert.IAlertSettingId = iAlertSettingId;
-                alert.IUserId = iUserId;
-                alert.SMessage = sMessage;
-                alert.STitle = sTitle;
+                int iAlerts = dbContext.Alerts.Where(x => x.IUserId == iUserId 
+                    && x.IAlertSettingId == iAlertSettingId
+                    && !x.DtDeleted.HasValue
+                    && !x.DtSent.HasValue).Count();
 
-                dbContext.Alerts.Add(alert);
-                int id = await dbContext.SaveChangesAsync();
+                if (iAlerts == 0)
+                {
+                    alert.IAlertSettingId = iAlertSettingId;
+                    alert.IUserId = iUserId;
+                    alert.SMessage = sMessage;
+                    alert.STitle = sTitle;
 
-                Console.WriteLine("Alert table updated: " + id);
+                    dbContext.Alerts.Add(alert);
+                    int id = await dbContext.SaveChangesAsync();
 
+                    Console.WriteLine("Alert table updated: " + id);
+                }
             }
 
             return alert;

@@ -39,8 +39,16 @@ namespace CryptoAlerts
         System.Data.Entity.DbSet<Alert> Alerts { get; set; } // Alerts
         System.Data.Entity.DbSet<AlertSetting> AlertSettings { get; set; } // AlertSettings
         System.Data.Entity.DbSet<CurrencyPair> CurrencyPairs { get; set; } // CurrencyPairs
+        System.Data.Entity.DbSet<Exception> Exceptions { get; set; } // Exceptions
         System.Data.Entity.DbSet<Exchanx> Exchanges { get; set; } // Exchanges
+        System.Data.Entity.DbSet<Language> Languages { get; set; } // Languages
+        System.Data.Entity.DbSet<Role> Roles { get; set; } // Roles
+        System.Data.Entity.DbSet<RolePermission> RolePermissions { get; set; } // RolePermissions
         System.Data.Entity.DbSet<User> Users { get; set; } // Users
+        System.Data.Entity.DbSet<UserPermission> UserPermissions { get; set; } // UserPermissions
+        System.Data.Entity.DbSet<UserPreference> UserPreferences { get; set; } // UserPreferences
+        System.Data.Entity.DbSet<UserRole> UserRoles { get; set; } // UserRoles
+        System.Data.Entity.DbSet<VersionInfo> VersionInfoes { get; set; } // VersionInfo
 
         int SaveChanges();
         System.Threading.Tasks.Task<int> SaveChangesAsync();
@@ -66,8 +74,16 @@ namespace CryptoAlerts
         public System.Data.Entity.DbSet<Alert> Alerts { get; set; } // Alerts
         public System.Data.Entity.DbSet<AlertSetting> AlertSettings { get; set; } // AlertSettings
         public System.Data.Entity.DbSet<CurrencyPair> CurrencyPairs { get; set; } // CurrencyPairs
+        public System.Data.Entity.DbSet<Exception> Exceptions { get; set; } // Exceptions
         public System.Data.Entity.DbSet<Exchanx> Exchanges { get; set; } // Exchanges
+        public System.Data.Entity.DbSet<Language> Languages { get; set; } // Languages
+        public System.Data.Entity.DbSet<Role> Roles { get; set; } // Roles
+        public System.Data.Entity.DbSet<RolePermission> RolePermissions { get; set; } // RolePermissions
         public System.Data.Entity.DbSet<User> Users { get; set; } // Users
+        public System.Data.Entity.DbSet<UserPermission> UserPermissions { get; set; } // UserPermissions
+        public System.Data.Entity.DbSet<UserPreference> UserPreferences { get; set; } // UserPreferences
+        public System.Data.Entity.DbSet<UserRole> UserRoles { get; set; } // UserRoles
+        public System.Data.Entity.DbSet<VersionInfo> VersionInfoes { get; set; } // VersionInfo
 
         static CryptoAlertsContext()
         {
@@ -120,8 +136,16 @@ namespace CryptoAlerts
             modelBuilder.Configurations.Add(new AlertConfiguration());
             modelBuilder.Configurations.Add(new AlertSettingConfiguration());
             modelBuilder.Configurations.Add(new CurrencyPairConfiguration());
+            modelBuilder.Configurations.Add(new ExceptionConfiguration());
             modelBuilder.Configurations.Add(new ExchanxConfiguration());
+            modelBuilder.Configurations.Add(new LanguageConfiguration());
+            modelBuilder.Configurations.Add(new RoleConfiguration());
+            modelBuilder.Configurations.Add(new RolePermissionConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new UserPermissionConfiguration());
+            modelBuilder.Configurations.Add(new UserPreferenceConfiguration());
+            modelBuilder.Configurations.Add(new UserRoleConfiguration());
+            modelBuilder.Configurations.Add(new VersionInfoConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -129,8 +153,16 @@ namespace CryptoAlerts
             modelBuilder.Configurations.Add(new AlertConfiguration(schema));
             modelBuilder.Configurations.Add(new AlertSettingConfiguration(schema));
             modelBuilder.Configurations.Add(new CurrencyPairConfiguration(schema));
+            modelBuilder.Configurations.Add(new ExceptionConfiguration(schema));
             modelBuilder.Configurations.Add(new ExchanxConfiguration(schema));
+            modelBuilder.Configurations.Add(new LanguageConfiguration(schema));
+            modelBuilder.Configurations.Add(new RoleConfiguration(schema));
+            modelBuilder.Configurations.Add(new RolePermissionConfiguration(schema));
             modelBuilder.Configurations.Add(new UserConfiguration(schema));
+            modelBuilder.Configurations.Add(new UserPermissionConfiguration(schema));
+            modelBuilder.Configurations.Add(new UserPreferenceConfiguration(schema));
+            modelBuilder.Configurations.Add(new UserRoleConfiguration(schema));
+            modelBuilder.Configurations.Add(new VersionInfoConfiguration(schema));
             return modelBuilder;
         }
     }
@@ -156,16 +188,32 @@ namespace CryptoAlerts
         public System.Data.Entity.DbSet<Alert> Alerts { get; set; }
         public System.Data.Entity.DbSet<AlertSetting> AlertSettings { get; set; }
         public System.Data.Entity.DbSet<CurrencyPair> CurrencyPairs { get; set; }
+        public System.Data.Entity.DbSet<Exception> Exceptions { get; set; }
         public System.Data.Entity.DbSet<Exchanx> Exchanges { get; set; }
+        public System.Data.Entity.DbSet<Language> Languages { get; set; }
+        public System.Data.Entity.DbSet<Role> Roles { get; set; }
+        public System.Data.Entity.DbSet<RolePermission> RolePermissions { get; set; }
         public System.Data.Entity.DbSet<User> Users { get; set; }
+        public System.Data.Entity.DbSet<UserPermission> UserPermissions { get; set; }
+        public System.Data.Entity.DbSet<UserPreference> UserPreferences { get; set; }
+        public System.Data.Entity.DbSet<UserRole> UserRoles { get; set; }
+        public System.Data.Entity.DbSet<VersionInfo> VersionInfoes { get; set; }
 
         public FakeCryptoAlertsContext()
         {
             Alerts = new FakeDbSet<Alert>("IAlertId");
             AlertSettings = new FakeDbSet<AlertSetting>("IAlertSettingId");
             CurrencyPairs = new FakeDbSet<CurrencyPair>("ICurrencyPairId");
+            Exceptions = new FakeDbSet<Exception>("Id");
             Exchanges = new FakeDbSet<Exchanx>("IExchangeId");
-            Users = new FakeDbSet<User>("IUserId");
+            Languages = new FakeDbSet<Language>("Id");
+            Roles = new FakeDbSet<Role>("RoleId");
+            RolePermissions = new FakeDbSet<RolePermission>("RolePermissionId");
+            Users = new FakeDbSet<User>("UserId");
+            UserPermissions = new FakeDbSet<UserPermission>("UserPermissionId");
+            UserPreferences = new FakeDbSet<UserPreference>("UserPreferenceId");
+            UserRoles = new FakeDbSet<UserRole>("UserRoleId");
+            VersionInfoes = new FakeDbSet<VersionInfo>("Version");
         }
 
         public int SaveChangesCount { get; private set; }
@@ -588,6 +636,38 @@ namespace CryptoAlerts
         }
     }
 
+    // Exceptions
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class Exception
+    {
+        public long Id { get; set; } // Id (Primary key)
+        public System.Guid Guid { get; set; } // GUID
+        public string ApplicationName { get; set; } // ApplicationName (length: 50)
+        public string MachineName { get; set; } // MachineName (length: 50)
+        public System.DateTime CreationDate { get; set; } // CreationDate
+        public string Type { get; set; } // Type (length: 100)
+        public bool IsProtected { get; set; } // IsProtected
+        public string Host { get; set; } // Host (length: 100)
+        public string Url { get; set; } // Url (length: 500)
+        public string HttpMethod { get; set; } // HTTPMethod (length: 10)
+        public string IpAddress { get; set; } // IPAddress (length: 40)
+        public string Source { get; set; } // Source (length: 100)
+        public string Message { get; set; } // Message (length: 1000)
+        public string Detail { get; set; } // Detail
+        public int? StatusCode { get; set; } // StatusCode
+        public string Sql { get; set; } // SQL
+        public System.DateTime? DeletionDate { get; set; } // DeletionDate
+        public string FullJson { get; set; } // FullJson
+        public int? ErrorHash { get; set; } // ErrorHash
+        public int DuplicateCount { get; set; } // DuplicateCount
+
+        public Exception()
+        {
+            IsProtected = true;
+            DuplicateCount = 1;
+        }
+    }
+
     // Exchanges
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
     public class Exchanx
@@ -611,16 +691,74 @@ namespace CryptoAlerts
         }
     }
 
+    // Languages
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class Language
+    {
+        public int Id { get; set; } // Id (Primary key)
+        public string LanguageId { get; set; } // LanguageId (length: 10)
+        public string LanguageName { get; set; } // LanguageName (length: 50)
+    }
+
+    // Roles
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class Role
+    {
+        public int RoleId { get; set; } // RoleId (Primary key)
+        public string RoleName { get; set; } // RoleName (length: 100)
+
+        // Reverse navigation
+
+        /// <summary>
+        /// Child RolePermissions where [RolePermissions].[RoleId] point to this entity (FK_RolePermissions_RoleId)
+        /// </summary>
+        public virtual System.Collections.Generic.ICollection<RolePermission> RolePermissions { get; set; } // RolePermissions.FK_RolePermissions_RoleId
+        /// <summary>
+        /// Child UserRoles where [UserRoles].[RoleId] point to this entity (FK_UserRoles_RoleId)
+        /// </summary>
+        public virtual System.Collections.Generic.ICollection<UserRole> UserRoles { get; set; } // UserRoles.FK_UserRoles_RoleId
+
+        public Role()
+        {
+            RolePermissions = new System.Collections.Generic.List<RolePermission>();
+            UserRoles = new System.Collections.Generic.List<UserRole>();
+        }
+    }
+
+    // RolePermissions
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class RolePermission
+    {
+        public long RolePermissionId { get; set; } // RolePermissionId (Primary key)
+        public int RoleId { get; set; } // RoleId
+        public string PermissionKey { get; set; } // PermissionKey (length: 100)
+
+        // Foreign keys
+
+        /// <summary>
+        /// Parent Role pointed by [RolePermissions].([RoleId]) (FK_RolePermissions_RoleId)
+        /// </summary>
+        public virtual Role Role { get; set; } // FK_RolePermissions_RoleId
+    }
+
     // Users
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
     public class User
     {
-        public int IUserId { get; set; } // iUserId (Primary key)
-        public string UserName { get; set; } // UserName (length: 50)
-        public string FirstName { get; set; } // FirstName (length: 50)
-        public string LastName { get; set; } // LastName (length: 50)
-        public System.DateTime DtCreated { get; set; } // dtCreated
-        public System.DateTime? DtDeleted { get; set; } // dtDeleted
+        public int UserId { get; set; } // UserId (Primary key)
+        public string Username { get; set; } // Username (length: 100)
+        public string DisplayName { get; set; } // DisplayName (length: 100)
+        public string Email { get; set; } // Email (length: 100)
+        public string Source { get; set; } // Source (length: 4)
+        public string PasswordHash { get; set; } // PasswordHash (length: 86)
+        public string PasswordSalt { get; set; } // PasswordSalt (length: 10)
+        public System.DateTime? LastDirectoryUpdate { get; set; } // LastDirectoryUpdate
+        public string UserImage { get; set; } // UserImage (length: 100)
+        public System.DateTime InsertDate { get; set; } // InsertDate
+        public int InsertUserId { get; set; } // InsertUserId
+        public System.DateTime? UpdateDate { get; set; } // UpdateDate
+        public int? UpdateUserId { get; set; } // UpdateUserId
+        public short IsActive { get; set; } // IsActive
 
         // Reverse navigation
 
@@ -632,13 +770,86 @@ namespace CryptoAlerts
         /// Child AlertSettings where [AlertSettings].[iUserId] point to this entity (FK_AlertSettings_Users)
         /// </summary>
         public virtual System.Collections.Generic.ICollection<AlertSetting> AlertSettings { get; set; } // AlertSettings.FK_AlertSettings_Users
+        /// <summary>
+        /// Child UserPermissions where [UserPermissions].[UserId] point to this entity (FK_UserPermissions_UserId)
+        /// </summary>
+        public virtual System.Collections.Generic.ICollection<UserPermission> UserPermissions { get; set; } // UserPermissions.FK_UserPermissions_UserId
+        /// <summary>
+        /// Child UserRoles where [UserRoles].[UserId] point to this entity (FK_UserRoles_UserId)
+        /// </summary>
+        public virtual System.Collections.Generic.ICollection<UserRole> UserRoles { get; set; } // UserRoles.FK_UserRoles_UserId
 
         public User()
         {
-            DtCreated = System.DateTime.Now;
-            AlertSettings = new System.Collections.Generic.List<AlertSetting>();
+            IsActive = 1;
+            UserPermissions = new System.Collections.Generic.List<UserPermission>();
+            UserRoles = new System.Collections.Generic.List<UserRole>();
             Alerts = new System.Collections.Generic.List<Alert>();
+            AlertSettings = new System.Collections.Generic.List<AlertSetting>();
         }
+    }
+
+    // UserPermissions
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class UserPermission
+    {
+        public long UserPermissionId { get; set; } // UserPermissionId (Primary key)
+        public int UserId { get; set; } // UserId
+        public string PermissionKey { get; set; } // PermissionKey (length: 100)
+        public bool Granted { get; set; } // Granted
+
+        // Foreign keys
+
+        /// <summary>
+        /// Parent User pointed by [UserPermissions].([UserId]) (FK_UserPermissions_UserId)
+        /// </summary>
+        public virtual User User { get; set; } // FK_UserPermissions_UserId
+
+        public UserPermission()
+        {
+            Granted = true;
+        }
+    }
+
+    // UserPreferences
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class UserPreference
+    {
+        public int UserPreferenceId { get; set; } // UserPreferenceId (Primary key)
+        public long UserId { get; set; } // UserId
+        public string PreferenceType { get; set; } // PreferenceType (length: 100)
+        public string Name { get; set; } // Name (length: 200)
+        public string Value { get; set; } // Value
+    }
+
+    // UserRoles
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class UserRole
+    {
+        public long UserRoleId { get; set; } // UserRoleId (Primary key)
+        public int UserId { get; set; } // UserId
+        public int RoleId { get; set; } // RoleId
+
+        // Foreign keys
+
+        /// <summary>
+        /// Parent Role pointed by [UserRoles].([RoleId]) (FK_UserRoles_RoleId)
+        /// </summary>
+        public virtual Role Role { get; set; } // FK_UserRoles_RoleId
+
+        /// <summary>
+        /// Parent User pointed by [UserRoles].([UserId]) (FK_UserRoles_UserId)
+        /// </summary>
+        public virtual User User { get; set; } // FK_UserRoles_UserId
+    }
+
+    // VersionInfo
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class VersionInfo
+    {
+        public long Version { get; set; } // Version (Primary key via unique index UC_Version)
+        public System.DateTime? AppliedOn { get; set; } // AppliedOn
+        public string Description { get; set; } // Description (length: 1024)
     }
 
     #endregion
@@ -729,6 +940,43 @@ namespace CryptoAlerts
         }
     }
 
+    // Exceptions
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class ExceptionConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Exception>
+    {
+        public ExceptionConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public ExceptionConfiguration(string schema)
+        {
+            ToTable("Exceptions", schema);
+            HasKey(x => x.Id);
+
+            Property(x => x.Id).HasColumnName(@"Id").HasColumnType("bigint").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.Guid).HasColumnName(@"GUID").HasColumnType("uniqueidentifier").IsRequired();
+            Property(x => x.ApplicationName).HasColumnName(@"ApplicationName").HasColumnType("nvarchar").IsRequired().HasMaxLength(50);
+            Property(x => x.MachineName).HasColumnName(@"MachineName").HasColumnType("nvarchar").IsRequired().HasMaxLength(50);
+            Property(x => x.CreationDate).HasColumnName(@"CreationDate").HasColumnType("datetime").IsRequired();
+            Property(x => x.Type).HasColumnName(@"Type").HasColumnType("nvarchar").IsRequired().HasMaxLength(100);
+            Property(x => x.IsProtected).HasColumnName(@"IsProtected").HasColumnType("bit").IsRequired();
+            Property(x => x.Host).HasColumnName(@"Host").HasColumnType("nvarchar").IsOptional().HasMaxLength(100);
+            Property(x => x.Url).HasColumnName(@"Url").HasColumnType("nvarchar").IsOptional().HasMaxLength(500);
+            Property(x => x.HttpMethod).HasColumnName(@"HTTPMethod").HasColumnType("nvarchar").IsOptional().HasMaxLength(10);
+            Property(x => x.IpAddress).HasColumnName(@"IPAddress").HasColumnType("nvarchar").IsOptional().HasMaxLength(40);
+            Property(x => x.Source).HasColumnName(@"Source").HasColumnType("nvarchar").IsOptional().HasMaxLength(100);
+            Property(x => x.Message).HasColumnName(@"Message").HasColumnType("nvarchar").IsOptional().HasMaxLength(1000);
+            Property(x => x.Detail).HasColumnName(@"Detail").HasColumnType("nvarchar(max)").IsOptional();
+            Property(x => x.StatusCode).HasColumnName(@"StatusCode").HasColumnType("int").IsOptional();
+            Property(x => x.Sql).HasColumnName(@"SQL").HasColumnType("nvarchar(max)").IsOptional();
+            Property(x => x.DeletionDate).HasColumnName(@"DeletionDate").HasColumnType("datetime").IsOptional();
+            Property(x => x.FullJson).HasColumnName(@"FullJson").HasColumnType("nvarchar(max)").IsOptional();
+            Property(x => x.ErrorHash).HasColumnName(@"ErrorHash").HasColumnType("int").IsOptional();
+            Property(x => x.DuplicateCount).HasColumnName(@"DuplicateCount").HasColumnType("int").IsRequired();
+        }
+    }
+
     // Exchanges
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
     public class ExchanxConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Exchanx>
@@ -750,6 +998,68 @@ namespace CryptoAlerts
         }
     }
 
+    // Languages
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class LanguageConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Language>
+    {
+        public LanguageConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public LanguageConfiguration(string schema)
+        {
+            ToTable("Languages", schema);
+            HasKey(x => x.Id);
+
+            Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.LanguageId).HasColumnName(@"LanguageId").HasColumnType("nvarchar").IsRequired().HasMaxLength(10);
+            Property(x => x.LanguageName).HasColumnName(@"LanguageName").HasColumnType("nvarchar").IsRequired().HasMaxLength(50);
+        }
+    }
+
+    // Roles
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class RoleConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Role>
+    {
+        public RoleConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public RoleConfiguration(string schema)
+        {
+            ToTable("Roles", schema);
+            HasKey(x => x.RoleId);
+
+            Property(x => x.RoleId).HasColumnName(@"RoleId").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.RoleName).HasColumnName(@"RoleName").HasColumnType("nvarchar").IsRequired().HasMaxLength(100);
+        }
+    }
+
+    // RolePermissions
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class RolePermissionConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<RolePermission>
+    {
+        public RolePermissionConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public RolePermissionConfiguration(string schema)
+        {
+            ToTable("RolePermissions", schema);
+            HasKey(x => x.RolePermissionId);
+
+            Property(x => x.RolePermissionId).HasColumnName(@"RolePermissionId").HasColumnType("bigint").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.RoleId).HasColumnName(@"RoleId").HasColumnType("int").IsRequired();
+            Property(x => x.PermissionKey).HasColumnName(@"PermissionKey").HasColumnType("nvarchar").IsRequired().HasMaxLength(100);
+
+            // Foreign keys
+            HasRequired(a => a.Role).WithMany(b => b.RolePermissions).HasForeignKey(c => c.RoleId).WillCascadeOnDelete(false); // FK_RolePermissions_RoleId
+        }
+    }
+
     // Users
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
     public class UserConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<User>
@@ -762,14 +1072,112 @@ namespace CryptoAlerts
         public UserConfiguration(string schema)
         {
             ToTable("Users", schema);
-            HasKey(x => x.IUserId);
+            HasKey(x => x.UserId);
 
-            Property(x => x.IUserId).HasColumnName(@"iUserId").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.UserName).HasColumnName(@"UserName").HasColumnType("nvarchar").IsRequired().HasMaxLength(50);
-            Property(x => x.FirstName).HasColumnName(@"FirstName").HasColumnType("nvarchar").IsOptional().HasMaxLength(50);
-            Property(x => x.LastName).HasColumnName(@"LastName").HasColumnType("nvarchar").IsOptional().HasMaxLength(50);
-            Property(x => x.DtCreated).HasColumnName(@"dtCreated").HasColumnType("datetime").IsRequired();
-            Property(x => x.DtDeleted).HasColumnName(@"dtDeleted").HasColumnType("datetime").IsOptional();
+            Property(x => x.UserId).HasColumnName(@"UserId").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.Username).HasColumnName(@"Username").HasColumnType("nvarchar").IsRequired().HasMaxLength(100);
+            Property(x => x.DisplayName).HasColumnName(@"DisplayName").HasColumnType("nvarchar").IsRequired().HasMaxLength(100);
+            Property(x => x.Email).HasColumnName(@"Email").HasColumnType("nvarchar").IsOptional().HasMaxLength(100);
+            Property(x => x.Source).HasColumnName(@"Source").HasColumnType("nvarchar").IsRequired().HasMaxLength(4);
+            Property(x => x.PasswordHash).HasColumnName(@"PasswordHash").HasColumnType("nvarchar").IsRequired().HasMaxLength(86);
+            Property(x => x.PasswordSalt).HasColumnName(@"PasswordSalt").HasColumnType("nvarchar").IsRequired().HasMaxLength(10);
+            Property(x => x.LastDirectoryUpdate).HasColumnName(@"LastDirectoryUpdate").HasColumnType("datetime").IsOptional();
+            Property(x => x.UserImage).HasColumnName(@"UserImage").HasColumnType("nvarchar").IsOptional().HasMaxLength(100);
+            Property(x => x.InsertDate).HasColumnName(@"InsertDate").HasColumnType("datetime").IsRequired();
+            Property(x => x.InsertUserId).HasColumnName(@"InsertUserId").HasColumnType("int").IsRequired();
+            Property(x => x.UpdateDate).HasColumnName(@"UpdateDate").HasColumnType("datetime").IsOptional();
+            Property(x => x.UpdateUserId).HasColumnName(@"UpdateUserId").HasColumnType("int").IsOptional();
+            Property(x => x.IsActive).HasColumnName(@"IsActive").HasColumnType("smallint").IsRequired();
+        }
+    }
+
+    // UserPermissions
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class UserPermissionConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<UserPermission>
+    {
+        public UserPermissionConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public UserPermissionConfiguration(string schema)
+        {
+            ToTable("UserPermissions", schema);
+            HasKey(x => x.UserPermissionId);
+
+            Property(x => x.UserPermissionId).HasColumnName(@"UserPermissionId").HasColumnType("bigint").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.UserId).HasColumnName(@"UserId").HasColumnType("int").IsRequired();
+            Property(x => x.PermissionKey).HasColumnName(@"PermissionKey").HasColumnType("nvarchar").IsRequired().HasMaxLength(100);
+            Property(x => x.Granted).HasColumnName(@"Granted").HasColumnType("bit").IsRequired();
+
+            // Foreign keys
+            HasRequired(a => a.User).WithMany(b => b.UserPermissions).HasForeignKey(c => c.UserId).WillCascadeOnDelete(false); // FK_UserPermissions_UserId
+        }
+    }
+
+    // UserPreferences
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class UserPreferenceConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<UserPreference>
+    {
+        public UserPreferenceConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public UserPreferenceConfiguration(string schema)
+        {
+            ToTable("UserPreferences", schema);
+            HasKey(x => x.UserPreferenceId);
+
+            Property(x => x.UserPreferenceId).HasColumnName(@"UserPreferenceId").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.UserId).HasColumnName(@"UserId").HasColumnType("bigint").IsRequired();
+            Property(x => x.PreferenceType).HasColumnName(@"PreferenceType").HasColumnType("nvarchar").IsRequired().HasMaxLength(100);
+            Property(x => x.Name).HasColumnName(@"Name").HasColumnType("nvarchar").IsRequired().HasMaxLength(200);
+            Property(x => x.Value).HasColumnName(@"Value").HasColumnType("nvarchar(max)").IsOptional();
+        }
+    }
+
+    // UserRoles
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class UserRoleConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<UserRole>
+    {
+        public UserRoleConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public UserRoleConfiguration(string schema)
+        {
+            ToTable("UserRoles", schema);
+            HasKey(x => x.UserRoleId);
+
+            Property(x => x.UserRoleId).HasColumnName(@"UserRoleId").HasColumnType("bigint").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.UserId).HasColumnName(@"UserId").HasColumnType("int").IsRequired();
+            Property(x => x.RoleId).HasColumnName(@"RoleId").HasColumnType("int").IsRequired();
+
+            // Foreign keys
+            HasRequired(a => a.Role).WithMany(b => b.UserRoles).HasForeignKey(c => c.RoleId).WillCascadeOnDelete(false); // FK_UserRoles_RoleId
+            HasRequired(a => a.User).WithMany(b => b.UserRoles).HasForeignKey(c => c.UserId).WillCascadeOnDelete(false); // FK_UserRoles_UserId
+        }
+    }
+
+    // VersionInfo
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.35.0.0")]
+    public class VersionInfoConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<VersionInfo>
+    {
+        public VersionInfoConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public VersionInfoConfiguration(string schema)
+        {
+            ToTable("VersionInfo", schema);
+            HasKey(x => x.Version);
+
+            Property(x => x.Version).HasColumnName(@"Version").HasColumnType("bigint").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
+            Property(x => x.AppliedOn).HasColumnName(@"AppliedOn").HasColumnType("datetime").IsOptional();
+            Property(x => x.Description).HasColumnName(@"Description").HasColumnType("nvarchar").IsOptional().HasMaxLength(1024);
         }
     }
 
