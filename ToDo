@@ -2,3 +2,6 @@
 2. parse pricing / exchange data
 3. save alert settings to database ( Entity framework ).
 4. check feed against settings to determine thresholds for sending alerts
+
+
+<add name="Default" connectionString="Data Source=WIN7VM;Initial Catalog=CryptoAlerts;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" providerName="System.Data.SqlClient" />

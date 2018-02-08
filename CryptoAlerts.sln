@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoAlerts", "CryptoAlerts.csproj", "{4E74D50E-21A8-4802-99F1-508967114FC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoAlerts.web.Web", "CryptoAlerts.web\CryptoAlerts.web.Web\CryptoAlerts.web.Web.csproj", "{E298DC33-D240-4585-AC47-775575246780}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlertsApp.Web", "AlertsApp\AlertsApp.Web\AlertsApp.Web.csproj", "{E298DC33-D240-4585-AC47-775575246780}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
