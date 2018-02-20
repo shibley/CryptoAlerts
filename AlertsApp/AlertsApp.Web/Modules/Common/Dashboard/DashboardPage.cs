@@ -5,6 +5,9 @@ namespace AlertsApp.Common.Pages
     using Serenity.Data;
     using System;
     using System.Web.Mvc;
+    using web.Default.Endpoints;
+    using web.Default.Entities;
+    using MyRepository = web.Default.Repositories.AlertsRepository;
 
     [RoutePrefix("Dashboard"), Route("{action=index}")]
     public class DashboardController : Controller
@@ -12,7 +15,17 @@ namespace AlertsApp.Common.Pages
         [Authorize, HttpGet, Route("~/")]
         public ActionResult Index()
         {
-            return View(MVC.Views.Common.Dashboard.DashboardIndex, new DashboardPageModel());
+
+            var model = new DashboardPageModel();
+            var row = AlertsRow.Fields;
+            using (var connection = SqlConnections.NewFor<AlertsRow>())
+            {
+                SqlQuery queryAlerts = new SqlQuery();
+
+                model.ActiveAlerts = connection.Count<AlertsRow>(row.IUserId == 1);
+            }
+
+            return View(MVC.Views.Common.Dashboard.DashboardIndex, model);
         }
     }
 }

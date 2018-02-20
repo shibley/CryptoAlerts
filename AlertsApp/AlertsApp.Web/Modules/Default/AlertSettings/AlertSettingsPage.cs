@@ -5,7 +5,7 @@ namespace AlertsApp.web.Default.Pages
     using Serenity.Web;
     using System.Web.Mvc;
 
-    [RoutePrefix("Default/AlertSettings"), Route("{action=index}")]
+    [RoutePrefix("AlertSettings"), Route("{action=index}")]
     [PageAuthorize(typeof(Entities.AlertSettingsRow))]
     public class AlertSettingsController : Controller
     {

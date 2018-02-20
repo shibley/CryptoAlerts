@@ -11,8 +11,8 @@ namespace AlertsApp.web.Default.Entities
 
     [ConnectionKey("Default"), TableName("[dbo].[Exchanges]")]
     [DisplayName("Exchanges"), InstanceName("Exchanges"), TwoLevelCached]
-    [ReadPermission("Administration:General")]
-    [ModifyPermission("Administration:General")]
+    [ReadPermission(Administration.PermissionKeys.Alerts)]
+    [ModifyPermission(Administration.PermissionKeys.Alerts)]
     public sealed class ExchangesRow : Row, IIdRow, INameRow
     {
         [DisplayName("I Exchange Id"), Column("iExchangeId"), Identity]

@@ -5,7 +5,7 @@ namespace AlertsApp.web.Default.Pages
     using Serenity.Web;
     using System.Web.Mvc;
 
-    [RoutePrefix("Default/CurrencyPairs"), Route("{action=index}")]
+    [RoutePrefix("CurrencyPairs"), Route("{action=index}")]
     [PageAuthorize(typeof(Entities.CurrencyPairsRow))]
     public class CurrencyPairsController : Controller
     {

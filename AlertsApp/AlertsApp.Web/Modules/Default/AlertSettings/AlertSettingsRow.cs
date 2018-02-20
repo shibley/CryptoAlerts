@@ -11,8 +11,8 @@ namespace AlertsApp.web.Default.Entities
 
     [ConnectionKey("Default"), TableName("[dbo].[AlertSettings]")]
     [DisplayName("Alert Settings"), InstanceName("Alert Settings"), TwoLevelCached]
-    [ReadPermission("Administration:General")]
-    [ModifyPermission("Administration:General")]
+    [ReadPermission(Administration.PermissionKeys.Alerts)]
+    [ModifyPermission(Administration.PermissionKeys.Alerts)]
     public sealed class AlertSettingsRow : Row, IIdRow, INameRow
     {
         [DisplayName("I Alert Setting Id"), Column("iAlertSettingId"), Identity]

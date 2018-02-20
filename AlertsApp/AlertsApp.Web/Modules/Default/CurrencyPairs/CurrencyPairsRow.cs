@@ -11,8 +11,8 @@ namespace AlertsApp.web.Default.Entities
 
     [ConnectionKey("Default"), TableName("[dbo].[CurrencyPairs]")]
     [DisplayName("Currency Pairs"), InstanceName("Currency Pairs"), TwoLevelCached]
-    [ReadPermission("Administration:General")]
-    [ModifyPermission("Administration:General")]
+    [ReadPermission(Administration.PermissionKeys.Alerts)]
+    [ModifyPermission(Administration.PermissionKeys.Alerts)]
     public sealed class CurrencyPairsRow : Row, IIdRow, INameRow
     {
         [DisplayName("I Currency Pair Id"), Column("iCurrencyPairId"), Identity]

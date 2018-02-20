@@ -11,8 +11,9 @@ namespace AlertsApp.web.Default.Entities
 
     [ConnectionKey("Default"), TableName("[dbo].[Alerts]")]
     [DisplayName("Alerts"), InstanceName("Alerts"), TwoLevelCached]
-    [ReadPermission("Administration:General")]
-    [ModifyPermission("Administration:General")]
+    [LookupScript("Administration.Alerts")]
+    [ReadPermission(Administration.PermissionKeys.Alerts)]
+    [ModifyPermission(Administration.PermissionKeys.Alerts)]
     public sealed class AlertsRow : Row, IIdRow, INameRow
     {
         [DisplayName("I Alert Id"), Column("iAlertId"), Identity]

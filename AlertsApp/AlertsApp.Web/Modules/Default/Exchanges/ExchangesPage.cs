@@ -5,7 +5,7 @@ namespace AlertsApp.web.Default.Pages
     using Serenity.Web;
     using System.Web.Mvc;
 
-    [RoutePrefix("Default/Exchanges"), Route("{action=index}")]
+    [RoutePrefix("Exchanges"), Route("{action=index}")]
     [PageAuthorize(typeof(Entities.ExchangesRow))]
     public class ExchangesController : Controller
     {
