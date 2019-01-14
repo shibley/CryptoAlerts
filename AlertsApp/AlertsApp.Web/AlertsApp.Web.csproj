@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\packages\Microsoft.TypeScript.MSBuild.2.5.3\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\..\packages\Microsoft.TypeScript.MSBuild.2.5.3\build\Microsoft.TypeScript.MSBuild.props')" />
+  <Import Project="..\..\packages\Microsoft.TypeScript.MSBuild.3.1.5\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\..\packages\Microsoft.TypeScript.MSBuild.3.1.5\build\Microsoft.TypeScript.MSBuild.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -56,11 +56,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CsQuery">
-      <HintPath>..\..\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
+    <Reference Include="CsQuery, Version=1.3.5.124, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CsQuery.1.3.5-beta5\lib\net40\CsQuery.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Dapper">
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Dapper.1.50.2\lib\net45\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
@@ -68,11 +68,11 @@
       <HintPath>..\..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FluentMigrator">
+    <Reference Include="FluentMigrator, Version=1.6.2.0, Culture=neutral, PublicKeyToken=aacfc7de5acabf05, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FluentMigrator.1.6.2\lib\40\FluentMigrator.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FluentMigrator.Runner">
+    <Reference Include="FluentMigrator.Runner, Version=1.6.2.0, Culture=neutral, PublicKeyToken=aacfc7de5acabf05, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FluentMigrator.Runner.1.6.2\lib\40\FluentMigrator.Runner.dll</HintPath>
       <Private>True</Private>
     </Reference>
@@ -81,36 +81,81 @@
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Mono.Cecil, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Serenity.Web.3.7.7\lib\net45\Mono.Cecil.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MsieJavaScriptEngine, Version=2.2.3.0, Culture=neutral, PublicKeyToken=a3a2846a37ac0d3e, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MsieJavaScriptEngine.2.2.3\lib\net45\MsieJavaScriptEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="NUglify, Version=1.5.8.0, Culture=neutral, PublicKeyToken=15bc7810aec21b5e, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NUglify.1.5.8\lib\net40\NUglify.dll</HintPath>
+    <Reference Include="NuGet.Client, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Client.4.2.0\lib\net45\NuGet.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Serenity.Core, Version=3.3.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Serenity.Core.3.3.15\lib\net45\Serenity.Core.dll</HintPath>
+    <Reference Include="NuGet.Common, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Common.4.2.0\lib\net45\NuGet.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Serenity.Data, Version=3.3.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Serenity.Data.3.3.15\lib\net45\Serenity.Data.dll</HintPath>
+    <Reference Include="NuGet.ContentModel, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.ContentModel.4.2.0\lib\net45\NuGet.ContentModel.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Serenity.Data.Entity, Version=3.3.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Serenity.Data.Entity.3.3.15\lib\net45\Serenity.Data.Entity.dll</HintPath>
+    <Reference Include="NuGet.Frameworks, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Frameworks.4.2.0\lib\net45\NuGet.Frameworks.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Serenity.Services, Version=3.3.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Serenity.Services.3.3.15\lib\net45\Serenity.Services.dll</HintPath>
+    <Reference Include="NuGet.Packaging, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Packaging.4.2.0\lib\net45\NuGet.Packaging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Serenity.Web, Version=3.3.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Serenity.Web.3.3.15\lib\net45\Serenity.Web.dll</HintPath>
+    <Reference Include="NuGet.Packaging.Core, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Packaging.Core.4.2.0\lib\net45\NuGet.Packaging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Packaging.Core.Types, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Packaging.Core.Types.4.2.0\lib\net45\NuGet.Packaging.Core.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Repositories, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Repositories.4.2.0\lib\net45\NuGet.Repositories.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.RuntimeModel, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.RuntimeModel.4.2.0\lib\net45\NuGet.RuntimeModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Versioning, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Versioning.4.2.0\lib\net45\NuGet.Versioning.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NUglify, Version=1.5.11.0, Culture=neutral, PublicKeyToken=15bc7810aec21b5e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NUglify.1.5.11\lib\net40\NUglify.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serenity.Core, Version=3.7.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Serenity.Core.3.7.7\lib\net45\Serenity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serenity.Data, Version=3.7.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Serenity.Data.3.7.7\lib\net45\Serenity.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serenity.Data.Entity, Version=3.7.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Serenity.Data.Entity.3.7.7\lib\net45\Serenity.Data.Entity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serenity.Services, Version=3.7.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Serenity.Services.3.7.7\lib\net45\Serenity.Services.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serenity.Web, Version=3.7.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Serenity.Web.3.7.7\lib\net45\Serenity.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="StackExchange.Exceptional, Version=1.0.130.0, Culture=neutral, processorArchitecture=MSIL">
@@ -120,6 +165,7 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -128,28 +174,28 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Helpers">
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Mvc">
-      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Razor">
-      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.WebPages">
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.WebPages.Deployment">
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.WebPages.Razor">
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
@@ -171,8 +217,10 @@
     <Content Include="Content\aristo\images\slider_handles.png" />
     <Content Include="Content\aristo\images\ui-icons_222222_256x240.png" />
     <Content Include="Content\aristo\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\colorbox\images\border.png" />
@@ -566,24 +614,18 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\ionicons.svg" />
-    <Content Include="fonts\Simple-Line-Icons.svg" />
+    <Content Include="Fonts\fontawesome-webfont.svg" />
+    <Content Include="Fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Fonts\ionicons.svg" />
+    <Content Include="Fonts\Simple-Line-Icons.svg" />
     <Content Include="Modules\Membership\Account\SignUp\AccountSignUp.AdminLTE.cshtml" />
     <Content Include="Imports\Web.config" />
     <Content Include="Migrations\Web.config" />
     <Content Include="Content\site\CssBundles.json" />
     <Content Include="packages.config" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Readme.CodeGenerator.txt" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
@@ -593,6 +635,7 @@
     <Content Include="Scripts\ckeditor\contents.css" />
     <Content Include="Scripts\ckeditor\lang\af.js" />
     <Content Include="Scripts\ckeditor\lang\ar.js" />
+    <Content Include="Scripts\ckeditor\lang\az.js" />
     <Content Include="Scripts\ckeditor\lang\bg.js" />
     <Content Include="Scripts\ckeditor\lang\bn.js" />
     <Content Include="Scripts\ckeditor\lang\bs.js" />
@@ -608,6 +651,7 @@
     <Content Include="Scripts\ckeditor\lang\en-gb.js" />
     <Content Include="Scripts\ckeditor\lang\en.js" />
     <Content Include="Scripts\ckeditor\lang\eo.js" />
+    <Content Include="Scripts\ckeditor\lang\es-mx.js" />
     <Content Include="Scripts\ckeditor\lang\es.js" />
     <Content Include="Scripts\ckeditor\lang\et.js" />
     <Content Include="Scripts\ckeditor\lang\eu.js" />
@@ -638,6 +682,7 @@
     <Content Include="Scripts\ckeditor\lang\nb.js" />
     <Content Include="Scripts\ckeditor\lang\nl.js" />
     <Content Include="Scripts\ckeditor\lang\no.js" />
+    <Content Include="Scripts\ckeditor\lang\oc.js" />
     <Content Include="Scripts\ckeditor\lang\pl.js" />
     <Content Include="Scripts\ckeditor\lang\pt-br.js" />
     <Content Include="Scripts\ckeditor\lang\pt.js" />
@@ -659,10 +704,13 @@
     <Content Include="Scripts\ckeditor\lang\zh-cn.js" />
     <Content Include="Scripts\ckeditor\lang\zh.js" />
     <Content Include="Scripts\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="Scripts\ckeditor\plugins\colordialog\dialogs\colordialog.css" />
     <Content Include="Scripts\ckeditor\plugins\colordialog\dialogs\colordialog.js" />
     <Content Include="Scripts\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="Scripts\ckeditor\plugins\fakeobjects\images\spacer.gif" />
     <Content Include="Scripts\ckeditor\plugins\icons.png" />
     <Content Include="Scripts\ckeditor\plugins\icons_hidpi.png" />
+    <Content Include="Scripts\ckeditor\plugins\image2\dialogs\image2.js" />
     <Content Include="Scripts\ckeditor\plugins\image\dialogs\image.js" />
     <Content Include="Scripts\ckeditor\plugins\image\images\noimage.png" />
     <Content Include="Scripts\ckeditor\plugins\link\dialogs\anchor.js" />
@@ -678,6 +726,7 @@
     <Content Include="Scripts\ckeditor\plugins\placeholder\dialogs\placeholder.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\af.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ar.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\az.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\bg.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
@@ -686,9 +735,12 @@
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\de-ch.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\de.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en-au.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en-ca.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en-gb.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\es-mx.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\es.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\et.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\eu.js" />
@@ -711,9 +763,11 @@
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\oc.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\pl.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\pt.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ro.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ru.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\si.js" />
     <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
@@ -738,6 +792,7 @@
     <Content Include="Scripts\ckeditor\skins\moono\dialog_ie7.css" />
     <Content Include="Scripts\ckeditor\skins\moono\dialog_ie8.css" />
     <Content Include="Scripts\ckeditor\skins\moono\dialog_iequirks.css" />
+    <Content Include="Scripts\ckeditor\skins\moono\dialog_opera.css" />
     <Content Include="Scripts\ckeditor\skins\moono\editor.css" />
     <Content Include="Scripts\ckeditor\skins\moono\editor_gecko.css" />
     <Content Include="Scripts\ckeditor\skins\moono\editor_ie.css" />
@@ -746,8 +801,10 @@
     <Content Include="Scripts\ckeditor\skins\moono\editor_iequirks.css" />
     <Content Include="Scripts\ckeditor\skins\moono\icons.png" />
     <Content Include="Scripts\ckeditor\skins\moono\icons_hidpi.png" />
+    <Content Include="Scripts\ckeditor\skins\moono\images\anchor.png" />
     <Content Include="Scripts\ckeditor\skins\moono\images\arrow.png" />
     <Content Include="Scripts\ckeditor\skins\moono\images\close.png" />
+    <Content Include="Scripts\ckeditor\skins\moono\images\hidpi\anchor.png" />
     <Content Include="Scripts\ckeditor\skins\moono\images\hidpi\close.png" />
     <Content Include="Scripts\ckeditor\skins\moono\images\hidpi\lock-open.png" />
     <Content Include="Scripts\ckeditor\skins\moono\images\hidpi\lock.png" />
@@ -757,6 +814,10 @@
     <Content Include="Scripts\ckeditor\skins\moono\images\refresh.png" />
     <Content Include="Scripts\ckeditor\skins\moono\images\spinner.gif" />
     <Content Include="Scripts\ckeditor\styles.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
     <Content Include="Scripts\flot\excanvas.js" />
     <Content Include="Scripts\flot\excanvas.min.js" />
     <Content Include="Scripts\flot\jquery.colorhelpers.js" />
@@ -791,44 +852,42 @@
     <Content Include="Scripts\flot\jquery.flot.threshold.min.js" />
     <Content Include="Scripts\flot\jquery.flot.time.js" />
     <Content Include="Scripts\flot\jquery.flot.time.min.js" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Scripts\ckeditor\skins\moono\readme.md" />
     <Content Include="Scripts\ckeditor\README.md" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
-    <Content Include="fonts\Simple-Line-Icons.woff2" />
-    <Content Include="fonts\Simple-Line-Icons.woff" />
-    <Content Include="fonts\Simple-Line-Icons.ttf" />
-    <Content Include="fonts\Simple-Line-Icons.eot" />
-    <Content Include="fonts\OpenSansSemiBold.woff" />
-    <Content Include="fonts\OpenSansLight.woff" />
-    <Content Include="fonts\OpenSansItalic.woff" />
-    <Content Include="fonts\OpenSansBold.woff" />
-    <Content Include="fonts\OpenSans.woff" />
-    <Content Include="fonts\ionicons.woff" />
-    <Content Include="fonts\ionicons.ttf" />
-    <Content Include="fonts\ionicons.eot" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\toastr.scss" />
-    <Content Include="Content\toastr.less" />
-    <Content Include="wkhtmltopdf-license.txt" />
-    <Content Include="Modules\Default\AlertSettings\AlertSettingsIndex.cshtml" />
-    <Content Include="Modules\Default\Alerts\AlertsIndex.cshtml" />
-    <Content Include="Modules\Default\CurrencyPairs\CurrencyPairsIndex.cshtml" />
-    <Content Include="Modules\Default\Exchanges\ExchangesIndex.cshtml" />
-    <Content Include="Content\site\site.default.less" />
-    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.1.1.js" />
-    <Content Include="Scripts\jquery-3.1.1.min.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
-    <Content Include="Scripts\jquery-ui-1.12.1.js" />
-    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Fonts\Simple-Line-Icons.woff2" />
+    <Content Include="Fonts\Simple-Line-Icons.woff" />
+    <Content Include="Fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Fonts\Simple-Line-Icons.eot" />
+    <Content Include="Fonts\OpenSansSemiBold.woff" />
+    <Content Include="Fonts\OpenSansLight.woff" />
+    <Content Include="Fonts\OpenSansItalic.woff" />
+    <Content Include="Fonts\OpenSansBold.woff" />
+    <Content Include="Fonts\OpenSans.woff" />
+    <Content Include="Fonts\ionicons.woff" />
+    <Content Include="Fonts\ionicons.ttf" />
+    <Content Include="Fonts\ionicons.eot" />
+    <Content Include="Fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Fonts\FontAwesome.otf" />
+    <Content Include="Fonts\fontawesome-webfont.woff2" />
+    <Content Include="Fonts\fontawesome-webfont.woff" />
+    <Content Include="Fonts\fontawesome-webfont.ttf" />
+    <Content Include="Fonts\fontawesome-webfont.eot" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-i18n.js" />
     <Content Include="Scripts\jquery-ui-i18n.min.js" />
@@ -870,6 +929,14 @@
     <Content Include="Scripts\jsrender.min.js" />
     <Content Include="Scripts\pace.js" />
     <Content Include="Scripts\pace.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\react-dom.development.js" />
+    <Content Include="Scripts\react-dom.production.min.js" />
+    <Content Include="Scripts\react.development.js" />
+    <Content Include="Scripts\react.production.min.js" />
     <Content Include="Scripts\rsvp.js" />
     <Content Include="Scripts\rsvp.min.js" />
     <Content Include="Scripts\saltarelle\linq.js" />
@@ -955,6 +1022,83 @@
     <Content Include="Scripts\SlickGrid\slick.remotemodel.js" />
     <Content Include="Scripts\sortable.js" />
     <Content Include="Scripts\sortable.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="tools\JsEngine\json2.min.js" />
+    <Content Include="tools\JsEngine\MsieJavaScriptEngine.dll" />
+    <Content Include="tools\JsEngine\typescriptServices.js" />
+    <Content Include="tools\Mono.Cecil\Mono.Cecil.dll" />
+    <Content Include="tools\Mono.Cecil\Mono.Cecil.Mdb.dll" />
+    <Content Include="tools\Mono.Cecil\Mono.Cecil.Pdb.dll" />
+    <Content Include="tools\Mono.Cecil\Mono.Cecil.Rocks.dll" />
+    <Content Include="tools\Node\less\lib\lessc.js" />
+    <Content Include="tools\Node\less\lib\less\colors.js" />
+    <Content Include="tools\Node\less\lib\less\encoder.js" />
+    <Content Include="tools\Node\less\lib\less\env.js" />
+    <Content Include="tools\Node\less\lib\less\extend-visitor.js" />
+    <Content Include="tools\Node\less\lib\less\fs.js" />
+    <Content Include="tools\Node\less\lib\less\functions.js" />
+    <Content Include="tools\Node\less\lib\less\import-visitor.js" />
+    <Content Include="tools\Node\less\lib\less\index.js" />
+    <Content Include="tools\Node\less\lib\less\join-selector-visitor.js" />
+    <Content Include="tools\Node\less\lib\less\lessc_helper.js" />
+    <Content Include="tools\Node\less\lib\less\parser.js" />
+    <Content Include="tools\Node\less\lib\less\rhino.js" />
+    <Content Include="tools\Node\less\lib\less\source-map-output.js" />
+    <Content Include="tools\Node\less\lib\less\to-css-visitor.js" />
+    <Content Include="tools\Node\less\lib\less\tree.js" />
+    <Content Include="tools\Node\less\lib\less\tree\alpha.js" />
+    <Content Include="tools\Node\less\lib\less\tree\anonymous.js" />
+    <Content Include="tools\Node\less\lib\less\tree\assignment.js" />
+    <Content Include="tools\Node\less\lib\less\tree\call.js" />
+    <Content Include="tools\Node\less\lib\less\tree\color.js" />
+    <Content Include="tools\Node\less\lib\less\tree\comment.js" />
+    <Content Include="tools\Node\less\lib\less\tree\condition.js" />
+    <Content Include="tools\Node\less\lib\less\tree\detached-ruleset.js" />
+    <Content Include="tools\Node\less\lib\less\tree\dimension.js" />
+    <Content Include="tools\Node\less\lib\less\tree\directive.js" />
+    <Content Include="tools\Node\less\lib\less\tree\element.js" />
+    <Content Include="tools\Node\less\lib\less\tree\expression.js" />
+    <Content Include="tools\Node\less\lib\less\tree\extend.js" />
+    <Content Include="tools\Node\less\lib\less\tree\import.js" />
+    <Content Include="tools\Node\less\lib\less\tree\javascript.js" />
+    <Content Include="tools\Node\less\lib\less\tree\keyword.js" />
+    <Content Include="tools\Node\less\lib\less\tree\media.js" />
+    <Content Include="tools\Node\less\lib\less\tree\mixin.js" />
+    <Content Include="tools\Node\less\lib\less\tree\negative.js" />
+    <Content Include="tools\Node\less\lib\less\tree\operation.js" />
+    <Content Include="tools\Node\less\lib\less\tree\paren.js" />
+    <Content Include="tools\Node\less\lib\less\tree\quoted.js" />
+    <Content Include="tools\Node\less\lib\less\tree\rule.js" />
+    <Content Include="tools\Node\less\lib\less\tree\ruleset-call.js" />
+    <Content Include="tools\Node\less\lib\less\tree\ruleset.js" />
+    <Content Include="tools\Node\less\lib\less\tree\selector.js" />
+    <Content Include="tools\Node\less\lib\less\tree\unicode-descriptor.js" />
+    <Content Include="tools\Node\less\lib\less\tree\url.js" />
+    <Content Include="tools\Node\less\lib\less\tree\value.js" />
+    <Content Include="tools\Node\less\lib\less\tree\variable.js" />
+    <Content Include="tools\Node\less\lib\less\visitor.js" />
+    <Content Include="tools\Node\node.exe" />
+    <Content Include="wkhtmltopdf-license.txt" />
+    <Content Include="Modules\Default\AlertSettings\AlertSettingsIndex.cshtml" />
+    <Content Include="Modules\Default\Alerts\AlertsIndex.cshtml" />
+    <Content Include="Modules\Default\CurrencyPairs\CurrencyPairsIndex.cshtml" />
+    <Content Include="Modules\Default\Exchanges\ExchangesIndex.cshtml" />
+    <Content Include="Content\site\site.default.less" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\vue.js" />
@@ -1418,67 +1562,22 @@
     <Content Include="Scripts\site\texts\site.texts.it.json" />
     <Content Include="Scripts\site\texts\site.texts.pt.json" />
     <Content Include="Scripts\site\texts\site.texts.pt-BR.json" />
-    <Content Include="tools\JsEngine\json2.min.js" />
-    <Content Include="tools\JsEngine\MsieJavaScriptEngine.dll" />
-    <Content Include="tools\JsEngine\typescriptServices.js" />
-    <Content Include="tools\Mono.Cecil\Mono.Cecil.dll" />
-    <Content Include="tools\Mono.Cecil\Mono.Cecil.Mdb.dll" />
-    <Content Include="tools\Mono.Cecil\Mono.Cecil.Pdb.dll" />
-    <Content Include="tools\Mono.Cecil\Mono.Cecil.Rocks.dll" />
-    <Content Include="tools\Node\less\lib\lessc.js" />
-    <Content Include="tools\Node\less\lib\less\colors.js" />
-    <Content Include="tools\Node\less\lib\less\encoder.js" />
-    <Content Include="tools\Node\less\lib\less\env.js" />
-    <Content Include="tools\Node\less\lib\less\extend-visitor.js" />
-    <Content Include="tools\Node\less\lib\less\fs.js" />
-    <Content Include="tools\Node\less\lib\less\functions.js" />
-    <Content Include="tools\Node\less\lib\less\import-visitor.js" />
-    <Content Include="tools\Node\less\lib\less\index.js" />
-    <Content Include="tools\Node\less\lib\less\join-selector-visitor.js" />
-    <Content Include="tools\Node\less\lib\less\lessc_helper.js" />
-    <Content Include="tools\Node\less\lib\less\parser.js" />
-    <Content Include="tools\Node\less\lib\less\rhino.js" />
-    <Content Include="tools\Node\less\lib\less\source-map-output.js" />
-    <Content Include="tools\Node\less\lib\less\to-css-visitor.js" />
-    <Content Include="tools\Node\less\lib\less\tree.js" />
-    <Content Include="tools\Node\less\lib\less\tree\alpha.js" />
-    <Content Include="tools\Node\less\lib\less\tree\anonymous.js" />
-    <Content Include="tools\Node\less\lib\less\tree\assignment.js" />
-    <Content Include="tools\Node\less\lib\less\tree\call.js" />
-    <Content Include="tools\Node\less\lib\less\tree\color.js" />
-    <Content Include="tools\Node\less\lib\less\tree\comment.js" />
-    <Content Include="tools\Node\less\lib\less\tree\condition.js" />
-    <Content Include="tools\Node\less\lib\less\tree\detached-ruleset.js" />
-    <Content Include="tools\Node\less\lib\less\tree\dimension.js" />
-    <Content Include="tools\Node\less\lib\less\tree\directive.js" />
-    <Content Include="tools\Node\less\lib\less\tree\element.js" />
-    <Content Include="tools\Node\less\lib\less\tree\expression.js" />
-    <Content Include="tools\Node\less\lib\less\tree\extend.js" />
-    <Content Include="tools\Node\less\lib\less\tree\import.js" />
-    <Content Include="tools\Node\less\lib\less\tree\javascript.js" />
-    <Content Include="tools\Node\less\lib\less\tree\keyword.js" />
-    <Content Include="tools\Node\less\lib\less\tree\media.js" />
-    <Content Include="tools\Node\less\lib\less\tree\mixin.js" />
-    <Content Include="tools\Node\less\lib\less\tree\negative.js" />
-    <Content Include="tools\Node\less\lib\less\tree\operation.js" />
-    <Content Include="tools\Node\less\lib\less\tree\paren.js" />
-    <Content Include="tools\Node\less\lib\less\tree\quoted.js" />
-    <Content Include="tools\Node\less\lib\less\tree\rule.js" />
-    <Content Include="tools\Node\less\lib\less\tree\ruleset-call.js" />
-    <Content Include="tools\Node\less\lib\less\tree\ruleset.js" />
-    <Content Include="tools\Node\less\lib\less\tree\selector.js" />
-    <Content Include="tools\Node\less\lib\less\tree\unicode-descriptor.js" />
-    <Content Include="tools\Node\less\lib\less\tree\url.js" />
-    <Content Include="tools\Node\less\lib\less\tree\value.js" />
-    <Content Include="tools\Node\less\lib\less\tree\variable.js" />
-    <Content Include="tools\Node\less\lib\less\visitor.js" />
-    <Content Include="tools\Node\node.exe" />
     <Content Include="tslint.json" />
     <Content Include="Scripts\vegas\vegas.min.js.map" />
     <Content Include="Scripts\site\texts\site.texts.fa.json" />
     <Content Include="Scripts\site\texts\site.texts.vi-VN.json" />
     <Content Include="package.json" />
-    <Content Include="Scripts\SlickGrid\README.md" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Scripts\serenity\texts\serenity.texts.zh-CN.json" />
     <Content Include="Scripts\serenity\texts\serenity.texts.vi-VN.json" />
     <Content Include="Scripts\serenity\texts\serenity.texts.tr.json" />
@@ -1489,6 +1588,9 @@
     <Content Include="Scripts\serenity\texts\serenity.texts.fa.json" />
     <Content Include="Scripts\serenity\texts\serenity.texts.es.json" />
     <Content Include="Scripts\serenity\texts\serenity.texts.de.json" />
+    <Content Include="Scripts\serenity\texts\serenity.texts.bn.json" />
+    <Content Include="Scripts\serenity\Serenity.CoreLib.js.map" />
+    <Content Include="Scripts\SlickGrid\README.md" />
     <Content Include="tools\Node\lessc.cmd" />
     <Content Include="tools\JsEngine\lib.d.ts_" />
     <None Include="tsconfig.json" />
@@ -1582,6 +1684,7 @@
     <Content Include="Views\Errors\AccessDenied.cshtml" />
     <Content Include="Views\Shared\_LayoutSlim.cshtml" />
     <Content Include="Views\Shared\_LayoutSlimHead.cshtml" />
+    <Content Include="Views\Shared\_LayoutMain.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1941,6 +2044,7 @@
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Reporting\PdfExportHelper.ts" />
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jspdf\jspdf.autotable.d.ts" />
   </ItemGroup>
   <PropertyGroup>
@@ -1972,10 +2076,10 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Microsoft.TypeScript.MSBuild.2.5.3\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.TypeScript.MSBuild.2.5.3\build\Microsoft.TypeScript.MSBuild.props'))" />
-    <Error Condition="!Exists('..\..\packages\Microsoft.TypeScript.MSBuild.2.5.3\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.TypeScript.MSBuild.2.5.3\build\Microsoft.TypeScript.MSBuild.targets'))" />
+    <Error Condition="!Exists('..\..\packages\NuGet.VisualStudio.4.6.2\build\NuGet.VisualStudio.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\NuGet.VisualStudio.4.6.2\build\NuGet.VisualStudio.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.TypeScript.MSBuild.3.1.5\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.TypeScript.MSBuild.3.1.5\build\Microsoft.TypeScript.MSBuild.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.TypeScript.MSBuild.3.1.5\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.TypeScript.MSBuild.3.1.5\build\Microsoft.TypeScript.MSBuild.targets'))" />
   </Target>
-  <Import Project="..\..\packages\Microsoft.TypeScript.MSBuild.2.5.3\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\..\packages\Microsoft.TypeScript.MSBuild.2.5.3\build\Microsoft.TypeScript.MSBuild.targets')" />
   <PropertyGroup>
     <NpmPath Condition="'$(NpmCmd)' == '' AND Exists('$(PROGRAMFILES)nodejs\npm.cmd')">$(PROGRAMFILES)nodejs\</NpmPath>
   </PropertyGroup>
@@ -2002,6 +2106,8 @@
     </Message>
     <Exec Command="&quot;$(TscToolPath.Replace('build\\..\tools\', 'tools\'))\tsc&quot; -p ./tsconfig.json" ContinueOnError="true" />
   </Target>
+  <Import Project="..\..\packages\NuGet.VisualStudio.4.6.2\build\NuGet.VisualStudio.targets" Condition="Exists('..\..\packages\NuGet.VisualStudio.4.6.2\build\NuGet.VisualStudio.targets')" />
+  <Import Project="..\..\packages\Microsoft.TypeScript.MSBuild.3.1.5\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\..\packages\Microsoft.TypeScript.MSBuild.3.1.5\build\Microsoft.TypeScript.MSBuild.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="AfterBuild">

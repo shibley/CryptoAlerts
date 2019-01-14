@@ -71,6 +71,7 @@ namespace CryptoAlerts
 
                     dbContext.Alerts.Add(alert);
                     int id = await dbContext.SaveChangesAsync();
+                    alert.IAlertId = id;
 
                     Console.WriteLine("Alert table updated: " + id);
                 }
@@ -137,15 +138,18 @@ namespace CryptoAlerts
             retVal.CryptoCurrencyName = strValues[2];
             retVal.FiatCurrencyName = strValues[3];
 
-            decimal decVal;
-            if (decimal.TryParse(strValues[7], NumberStyles.Number, CultureInfo.InvariantCulture, out decVal))
+            if (strValues.Length > 7)
             {
-                retVal.Quantity = decVal;
-            }
+                decimal decVal;
+                if (decimal.TryParse(strValues[7], NumberStyles.Number, CultureInfo.InvariantCulture, out decVal))
+                {
+                    retVal.Quantity = decVal;
+                }
 
-            if (decimal.TryParse(strValues[8], NumberStyles.Number, CultureInfo.InvariantCulture, out decVal))
-            {
-                retVal.LastPrice = decVal;
+                if (decimal.TryParse(strValues[8], NumberStyles.Number, CultureInfo.InvariantCulture, out decVal))
+                {
+                    retVal.LastPrice = decVal;
+                }
             }
 
             return retVal;

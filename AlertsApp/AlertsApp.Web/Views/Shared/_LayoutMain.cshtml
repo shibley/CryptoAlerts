@@ -1,0 +1,2171 @@
+﻿<title>@ViewData["Title"]</title>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @RenderSection("Head", false)
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Real-time, actionable alerts and analysis of crypto transactions. Be in the know. ">
+    <meta name="author" content="WhaleWatch.io">
+    <meta property="og:title" content="WhaleWatch.io - Get real-time, custom alerts on large volume crypto transactions." />
+    <meta property="og:site_name" content="WhaleWatch.io" />
+    <meta property="og:image" content="/images/trading-crypto-e090274df2951d2684703f0f9f1fcbc0.jpg?vsn=d" />
+    <meta property="og:description" content="Real-time, actionable alerts and analysis of crypto transactions. Be in the know." />
+    <title>WhaleWatch.io - Get real-time, custom alerts on large volume crypto transactions.</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/app-2e73f21f2dad635d15746347f258b0a1.css?vsn=d">
+    <link rel="shortcut icon" type="image/png" href="/images/🐳-15d81b507fda176d9cb3f8f6f725c063.png?vsn=d" />
+    <link href="https://fonts.googleapis.com/css?family=Oxygen:300,300italic,400,400italic" rel="stylesheet" type="text/css">
+</head>
+
+<body class="authentication-bg" data-layout="topnav">
+    <!-- Begin page -->
+    <div class="wrapper">
+        @RenderBody()
+        <div class="content-page">
+            <div class="content">
+                <div class="account-pages mt-lg-4 mt-xl-4 mt-sm-2 mb-lg-4 mb-xl-4 mb-sm-2">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="card">
+
+                                    <div class="card-header pt-4 pb-3 pl-4 text-left bg-dark">
+                                        <div class="row">
+                                            <div class="col-lg-5 col-xl-5 col-md-12 col-sm-12">
+                                                <a href="/">
+                                                    <span><img class="image-round" src="/images/logo-144877ba2af0e9b4f6c36eeefcc8534b.jpg?vsn=d" alt="" height="55"></span>
+                                                    <span class="logo-text ml-1 text-white">
+                                                        WhaleWatch.io
+                                                        <span class="badge badge-danger">Beta</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+
+                                            <div class="col-lg-7 col-xl-7 col-md-12 col-sm-12 text-white">
+                                                <p class="mt-2 font-16 mb-0">Get real-time, custom alerts of large volume crypto transactions to/from crypto exchanges.</p>
+                                                <p class="font-16">Be in the know.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body p-4">
+
+                                        <div class="text-left w-75">
+                                            <h4 class="text-dark-50 text-left mt-0 font-weight-bold">Create an alert</h4>
+                                            <p class="text-muted mb-4">It only takes a minute.</p>
+                                        </div>
+
+                                        <form accept-charset="UTF-8" action="/onboarding" method="post">
+                                            <input name="_csrf_token" type="hidden" value="I14IFCcWexgfN3MVBz8VXhxvY18kJgAAS/MlstC7gv2siIZ+oX31jA=="><input name="_utf8" type="hidden" value="✓">
+
+                                            <div class="form-group mb-4">
+                                                <label>What would you like to track?</label><br />
+                                                <div class="btn-group btn-group-toggle" id="currency-switch" data-toggle="buttons">
+                                                    <label class="btn btn-info switch-label active" id="btc">
+                                                        <input autocomplete="off" class="switch-input" id="alert_type_btc" name="alert[type]" type="radio" value="btc">BTC
+                                                    </label>
+                                                    <label class="btn btn-info switch-label " id="eth">
+                                                        <input autocomplete="off" class="switch-input" id="alert_type_eth" name="alert[type]" type="radio" value="eth">ETH
+                                                    </label>
+                                                    <label class="btn btn-info switch-label " id="erc20">
+                                                        <input autocomplete="off" class="switch-input" id="alert_type_erc20" name="alert[type]" type="radio" value="erc20">ERC20
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div id="tokens" class="col-lg-6 col-xl-6 col-sm-12 col-md-12 d-none">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="alert_Token">Token</label>                      <select name="alert[symbol]" class="form-control select2" data-toggle="select2">
+                                                            <option value="">None</option>
+                                                            <option value="0xBTC">
+                                                                0xBTC (0xBitcoin Token)
+                                                            </option>
+                                                            <option value="1ST">
+                                                                1ST (FirstBlood)
+                                                            </option>
+                                                            <option value="1WO">
+                                                                1WO (1World)
+                                                            </option>
+                                                            <option value="300">
+                                                                300 (300 Token)
+                                                            </option>
+                                                            <option value="ABT">
+                                                                ABT (ArcBlock)
+                                                            </option>
+                                                            <option value="ABYSS">
+                                                                ABYSS (ABYSS)
+                                                            </option>
+                                                            <option value="ACC">
+                                                                ACC (Accelerator)
+                                                            </option>
+                                                            <option value="ACE">
+                                                                ACE (ACE)
+                                                            </option>
+                                                            <option value="ADB">
+                                                                ADB (AdBank)
+                                                            </option>
+                                                            <option value="ADI">
+                                                                ADI (Aditus)
+                                                            </option>
+                                                            <option value="ADST">
+                                                                ADST (Adshares)
+                                                            </option>
+                                                            <option value="ADT">
+                                                                ADT (AdToken)
+                                                            </option>
+                                                            <option value="ADX">
+                                                                ADX (AdEx)
+                                                            </option>
+                                                            <option value="AE">
+                                                                AE (Aeternity)
+                                                            </option>
+                                                            <option value="AGI">
+                                                                AGI (SingularityNET)
+                                                            </option>
+                                                            <option value="AI">
+                                                                AI (PolyAi)
+                                                            </option>
+                                                            <option value="AID">
+                                                                AID (AidCoin)
+                                                            </option>
+                                                            <option value="AION">
+                                                                AION (AION)
+                                                            </option>
+                                                            <option value="AIR">
+                                                                AIR (AirToken)
+                                                            </option>
+                                                            <option value="AIX">
+                                                                AIX (Aigang)
+                                                            </option>
+                                                            <option value="ALIS">
+                                                                ALIS (Alis)
+                                                            </option>
+                                                            <option value="ALX">
+                                                                ALX (ALX)
+                                                            </option>
+                                                            <option value="AMB">
+                                                                AMB (Amber)
+                                                            </option>
+                                                            <option value="AMLT">
+                                                                AMLT (AMLT)
+                                                            </option>
+                                                            <option value="AMN">
+                                                                AMN (Amon)
+                                                            </option>
+                                                            <option value="ANT">
+                                                                ANT (Aragon)
+                                                            </option>
+                                                            <option value="AOA">
+                                                                AOA (Aurora)
+                                                            </option>
+                                                            <option value="APIS">
+                                                                APIS (APIS)
+                                                            </option>
+                                                            <option value="APPC">
+                                                                APPC (AppCoins)
+                                                            </option>
+                                                            <option value="ARB">
+                                                                ARB (ARBITRAGE)
+                                                            </option>
+                                                            <option value="ARC">
+                                                                ARC (Arcade)
+                                                            </option>
+                                                            <option value="ARCT">
+                                                                ARCT (ArbitrageCT)
+                                                            </option>
+                                                            <option value="ARN">
+                                                                ARN (Aeron)
+                                                            </option>
+                                                            <option value="ART">
+                                                                ART (Maecenas ART Token)
+                                                            </option>
+                                                            <option value="ARY">
+                                                                ARY (Block Array)
+                                                            </option>
+                                                            <option value="AST">
+                                                                AST (AirSwap)
+                                                            </option>
+                                                            <option value="ASTRO">
+                                                                ASTRO (AstroTokens)
+                                                            </option>
+                                                            <option value="ATL">
+                                                                ATL (ATLANT)
+                                                            </option>
+                                                            <option value="ATM">
+                                                                ATM (ATMChain)
+                                                            </option>
+                                                            <option value="ATS">
+                                                                ATS (Authorship)
+                                                            </option>
+                                                            <option value="ATX">
+                                                                ATX (Aston X)
+                                                            </option>
+                                                            <option value="AUC">
+                                                                AUC (Auctus)
+                                                            </option>
+                                                            <option value="AURA">
+                                                                AURA (Aurora DAO)
+                                                            </option>
+                                                            <option value="AUTO">
+                                                                AUTO (CUBE)
+                                                            </option>
+                                                            <option value="AVT">
+                                                                AVT (AVT)
+                                                            </option>
+                                                            <option value="AXPR">
+                                                                AXPR (aXpire)
+                                                            </option>
+                                                            <option value="B2BX">
+                                                                B2BX (B2BX)
+                                                            </option>
+                                                            <option value="BANCA">
+                                                                BANCA (BANCA)
+                                                            </option>
+                                                            <option value="BAS">
+                                                                BAS (BitAsean)
+                                                            </option>
+                                                            <option value="BAT">
+                                                                BAT (BAT)
+                                                            </option>
+                                                            <option value="BAX">
+                                                                BAX (BAX)
+                                                            </option>
+                                                            <option value="BBC">
+                                                                BBC (B2BCoin)
+                                                            </option>
+                                                            <option value="BBI">
+                                                                BBI (Beluga Banking Infrastructure Token)
+                                                            </option>
+                                                            <option value="BBN">
+                                                                BBN (BBN)
+                                                            </option>
+                                                            <option value="BBO">
+                                                                BBO (Bigbom)
+                                                            </option>
+                                                            <option value="BCAP">
+                                                                BCAP (BCAP)
+                                                            </option>
+                                                            <option value="BCPT">
+                                                                BCPT (BLOCKMASON CREDIT PROTOCOL TOKEN)
+                                                            </option>
+                                                            <option value="BDG">
+                                                                BDG (BitDegree)
+                                                            </option>
+                                                            <option value="BEE">
+                                                                BEE (Bee)
+                                                            </option>
+                                                            <option value="BERRY">
+                                                                BERRY (Berry)
+                                                            </option>
+                                                            <option value="BET">
+                                                                BET (Dao.Casino)
+                                                            </option>
+                                                            <option value="BETR">
+                                                                BETR (Better Betting)
+                                                            </option>
+                                                            <option value="Bez">
+                                                                Bez (Bezop)
+                                                            </option>
+                                                            <option value="BHPC">
+                                                                BHPC (BHPCash)
+                                                            </option>
+                                                            <option value="BITPARK">
+                                                                BITPARK (BITPARK)
+                                                            </option>
+                                                            <option value="BIX">
+                                                                BIX (BIX Token)
+                                                            </option>
+                                                            <option value="BKX">
+                                                                BKX (BANKEX)
+                                                            </option>
+                                                            <option value="BLN">
+                                                                BLN (Boleno)
+                                                            </option>
+                                                            <option value="BLT">
+                                                                BLT (Bloom)
+                                                            </option>
+                                                            <option value="BLUE">
+                                                                BLUE (Ethereum Blue)
+                                                            </option>
+                                                            <option value="BLZ">
+                                                                BLZ (Bluzelle)
+                                                            </option>
+                                                            <option value="BMC">
+                                                                BMC (BitMartToken)
+                                                            </option>
+                                                            <option value="BNB">
+                                                                BNB (BNB)
+                                                            </option>
+                                                            <option value="BNT">
+                                                                BNT (Bancor)
+                                                            </option>
+                                                            <option value="BNTY">
+                                                                BNTY (Bounty0x)
+                                                            </option>
+                                                            <option value="BOB">
+                                                                BOB (BOB Token)
+                                                            </option>
+                                                            <option value="BON">
+                                                                BON (Bonpay)
+                                                            </option>
+                                                            <option value="BOUTS">
+                                                                BOUTS (BoutsPro)
+                                                            </option>
+                                                            <option value="BOX">
+                                                                BOX (ContentBox Token)
+                                                            </option>
+                                                            <option value="BPT">
+                                                                BPT (Blockport)
+                                                            </option>
+                                                            <option value="BRAT">
+                                                                BRAT (BRAT)
+                                                            </option>
+                                                            <option value="BRD">
+                                                                BRD (Bread)
+                                                            </option>
+                                                            <option value="BTC">
+                                                                BTC (Bitcoin)
+                                                            </option>
+                                                            <option value="BTCA">
+                                                                BTCA (BitAir)
+                                                            </option>
+                                                            <option value="BTCONE">
+                                                                BTCONE (BitCoin ONE)
+                                                            </option>
+                                                            <option value="BTCR">
+                                                                BTCR (Bitcoin Red)
+                                                            </option>
+                                                            <option value="BTM">
+                                                                BTM (Bytom)
+                                                            </option>
+                                                            <option value="BTRN">
+                                                                BTRN (BTRN)
+                                                            </option>
+                                                            <option value="BTT">
+                                                                BTT (blocktrade)
+                                                            </option>
+                                                            <option value="BZ">
+                                                                BZ (BZ)
+                                                            </option>
+                                                            <option value="BZNT">
+                                                                BZNT (BezantToken)
+                                                            </option>
+                                                            <option value="C20">
+                                                                C20 (Crypto20)
+                                                            </option>
+                                                            <option value="CAG">
+                                                                CAG (ChangeBank)
+                                                            </option>
+                                                            <option value="CAN">
+                                                                CAN (CanYaCoin)
+                                                            </option>
+                                                            <option value="CAPP">
+                                                                CAPP (Cappasity)
+                                                            </option>
+                                                            <option value="CAS">
+                                                                CAS (Cashaa)
+                                                            </option>
+                                                            <option value="CAT">
+                                                                CAT (BitClave)
+                                                            </option>
+                                                            <option value="CBC">
+                                                                CBC (CashBetCoin)
+                                                            </option>
+                                                            <option value="CBT">
+                                                                CBT (CommerceBlock)
+                                                            </option>
+                                                            <option value="CCCX">
+                                                                CCCX (Clipper Coin Capital)
+                                                            </option>
+                                                            <option value="CCO">
+                                                                CCO (Ccore)
+                                                            </option>
+                                                            <option value="CCRB">
+                                                                CCRB (CCRB)
+                                                            </option>
+                                                            <option value="CCT">
+                                                                CCT (Crystal Clear Token)
+                                                            </option>
+                                                            <option value="CDT">
+                                                                CDT (CoinDash)
+                                                            </option>
+                                                            <option value="CDX">
+                                                                CDX (Network)
+                                                            </option>
+                                                            <option value="CEEK">
+                                                                CEEK (CEEK)
+                                                            </option>
+                                                            <option value="CENNZ">
+                                                                CENNZ (Centrality Token)
+                                                            </option>
+                                                            <option value="CFI">
+                                                                CFI (Cofoundit)
+                                                            </option>
+                                                            <option value="CHP">
+                                                                CHP (Poker Chips)
+                                                            </option>
+                                                            <option value="CHSB">
+                                                                CHSB (SwissBorg)
+                                                            </option>
+                                                            <option value="CHX">
+                                                                CHX (Chainium)
+                                                            </option>
+                                                            <option value="CJT">
+                                                                CJT (ConnectJob)
+                                                            </option>
+                                                            <option value="CL">
+                                                                CL (Coinlancer)
+                                                            </option>
+                                                            <option value="CLN">
+                                                                CLN (Colu Local Network)
+                                                            </option>
+                                                            <option value="CMCT">
+                                                                CMCT (Crowd Machine Compute Token)
+                                                            </option>
+                                                            <option value="CMT">
+                                                                CMT (CyberMiles)
+                                                            </option>
+                                                            <option value="CND">
+                                                                CND (Cindicator)
+                                                            </option>
+                                                            <option value="CNN">
+                                                                CNN (CNN Token)
+                                                            </option>
+                                                            <option value="COB">
+                                                                COB (Cobinhood)
+                                                            </option>
+                                                            <option value="COFI">
+                                                                COFI (CoinFi)
+                                                            </option>
+                                                            <option value="COSM">
+                                                                COSM (CosmoCoin)
+                                                            </option>
+                                                            <option value="COSS">
+                                                                COSS (COSS)
+                                                            </option>
+                                                            <option value="COV">
+                                                                COV (Covesting)
+                                                            </option>
+                                                            <option value="CPAY">
+                                                                CPAY (CPAY)
+                                                            </option>
+                                                            <option value="CPC">
+                                                                CPC (CPChain)
+                                                            </option>
+                                                            <option value="CPT">
+                                                                CPT (Cryptaur)
+                                                            </option>
+                                                            <option value="CPY">
+                                                                CPY (COPYTRACK)
+                                                            </option>
+                                                            <option value="CRB">
+                                                                CRB (CreditBIT)
+                                                            </option>
+                                                            <option value="CRC">
+                                                                CRC (CryCash)
+                                                            </option>
+                                                            <option value="CRED">
+                                                                CRED (Verify)
+                                                            </option>
+                                                            <option value="CREDO">
+                                                                CREDO (Credo Token)
+                                                            </option>
+                                                            <option value="CRPT">
+                                                                CRPT (Crypterium)
+                                                            </option>
+                                                            <option value="CS">
+                                                                CS (CREDITS)
+                                                            </option>
+                                                            <option value="CSNO">
+                                                                CSNO (BitDice)
+                                                            </option>
+                                                            <option value="CST">
+                                                                CST (Cryptosolartech)
+                                                            </option>
+                                                            <option value="CTR">
+                                                                CTR (Centra)
+                                                            </option>
+                                                            <option value="CTX">
+                                                                CTX (CarTaxi)
+                                                            </option>
+                                                            <option value="CTXC">
+                                                                CTXC (Cortex Coin)
+                                                            </option>
+                                                            <option value="cV">
+                                                                cV (cVToken)
+                                                            </option>
+                                                            <option value="CVC">
+                                                                CVC (Civic)
+                                                            </option>
+                                                            <option value="CVT">
+                                                                CVT (CyberVeinToken)
+                                                            </option>
+                                                            <option value="CXO">
+                                                                CXO (CargoX)
+                                                            </option>
+                                                            <option value="DADI">
+                                                                DADI (DADI)
+                                                            </option>
+                                                            <option value="DAI">
+                                                                DAI (Dai Stablecoin v1.0)
+                                                            </option>
+                                                            <option value="DALC">
+                                                                DALC (DALECOIN)
+                                                            </option>
+                                                            <option value="DAN">
+                                                                DAN (Daneel)
+                                                            </option>
+                                                            <option value="DAT">
+                                                                DAT (Datum)
+                                                            </option>
+                                                            <option value="DATA">
+                                                                DATA (DATAcoin)
+                                                            </option>
+                                                            <option value="DATx">
+                                                                DATx (DATx)
+                                                            </option>
+                                                            <option value="DAX">
+                                                                DAX (DAEX Token)
+                                                            </option>
+                                                            <option value="DBET">
+                                                                DBET (Decent.Bet)
+                                                            </option>
+                                                            <option value="DCC">
+                                                                DCC (Distributed Credit Chain)
+                                                            </option>
+                                                            <option value="DDF">
+                                                                DDF (Digital Developers Fund Token)
+                                                            </option>
+                                                            <option value="DEB">
+                                                                DEB (DEBITUM)
+                                                            </option>
+                                                            <option value="DENT">
+                                                                DENT (DENT)
+                                                            </option>
+                                                            <option value="Dentacoin">
+                                                                Dentacoin (Dentacoin)
+                                                            </option>
+                                                            <option value="DGD">
+                                                                DGD (DGD)
+                                                            </option>
+                                                            <option value="DGPT">
+                                                                DGPT (DigiPulse)
+                                                            </option>
+                                                            <option value="DGTX">
+                                                                DGTX (DigitexFutures)
+                                                            </option>
+                                                            <option value="DGX">
+                                                                DGX (Digix Gold Token)
+                                                            </option>
+                                                            <option value="DLT">
+                                                                DLT (Delta)
+                                                            </option>
+                                                            <option value="DMT">
+                                                                DMT (DMarket)
+                                                            </option>
+                                                            <option value="DNA">
+                                                                DNA (DNA)
+                                                            </option>
+                                                            <option value="DNT">
+                                                                DNT (district0x)
+                                                            </option>
+                                                            <option value="DOCK">
+                                                                DOCK (Dock)
+                                                            </option>
+                                                            <option value="DOR">
+                                                                DOR (DoradoToken)
+                                                            </option>
+                                                            <option value="DOV">
+                                                                DOV (DOVU)
+                                                            </option>
+                                                            <option value="dow">
+                                                                dow (DOW)
+                                                            </option>
+                                                            <option value="DRGN">
+                                                                DRGN (Dragon)
+                                                            </option>
+                                                            <option value="DRP">
+                                                                DRP (DCORP)
+                                                            </option>
+                                                            <option value="DRPU">
+                                                                DRPU (DRP Utility)
+                                                            </option>
+                                                            <option value="DRT">
+                                                                DRT (DomRaiderToken)
+                                                            </option>
+                                                            <option value="DTH">
+                                                                DTH (Dether)
+                                                            </option>
+                                                            <option value="DTRC">
+                                                                DTRC (Datarius Credit)
+                                                            </option>
+                                                            <option value="DTX">
+                                                                DTX (DaTa eXchange Token)
+                                                            </option>
+                                                            <option value="DXT">
+                                                                DXT (DataWallet)
+                                                            </option>
+                                                            <option value="E4ROW">
+                                                                E4ROW (E4ROW)
+                                                            </option>
+                                                            <option value="EARTH">
+                                                                EARTH (EARTH Token)
+                                                            </option>
+                                                            <option value="EBC">
+                                                                EBC (EBCoin)
+                                                            </option>
+                                                            <option value="eBCH">
+                                                                eBCH (eBitcoinCash)
+                                                            </option>
+                                                            <option value="EBTC">
+                                                                EBTC (eBitcoin)
+                                                            </option>
+                                                            <option value="ECOM">
+                                                                ECOM (Omnitude)
+                                                            </option>
+                                                            <option value="EDG">
+                                                                EDG (Edgeless)
+                                                            </option>
+                                                            <option value="EDO">
+                                                                EDO (Eidoo)
+                                                            </option>
+                                                            <option value="EDR">
+                                                                EDR (Endor Protocol Token)
+                                                            </option>
+                                                            <option value="eGAS">
+                                                                eGAS (ETHGAS)
+                                                            </option>
+                                                            <option value="EGT">
+                                                                EGT (Egretia)
+                                                            </option>
+                                                            <option value="EKO">
+                                                                EKO (EchoLink)
+                                                            </option>
+                                                            <option value="EKT">
+                                                                EKT (EDUCare)
+                                                            </option>
+                                                            <option value="ELEC">
+                                                                ELEC (ElectrifyAsia)
+                                                            </option>
+                                                            <option value="ELF">
+                                                                ELF (ELF)
+                                                            </option>
+                                                            <option value="ELTCOIN">
+                                                                ELTCOIN (ELTCOIN)
+                                                            </option>
+                                                            <option value="ELY">
+                                                                ELY (Elycoin)
+                                                            </option>
+                                                            <option value="EMB">
+                                                                EMB (Embers)
+                                                            </option>
+                                                            <option value="EMV">
+                                                                EMV (EthereumMovieVenture)
+                                                            </option>
+                                                            <option value="ENG">
+                                                                ENG (Enigma)
+                                                            </option>
+                                                            <option value="ENJ">
+                                                                ENJ (EnjinCoin)
+                                                            </option>
+                                                            <option value="EPY">
+                                                                EPY (EmphyCoin)
+                                                            </option>
+                                                            <option value="EQL">
+                                                                EQL (EQUAL)
+                                                            </option>
+                                                            <option value="ERO">
+                                                                ERO (EROSCOIN)
+                                                            </option>
+                                                            <option value="ESZ">
+                                                                ESZ (ESZCoin)
+                                                            </option>
+                                                            <option value="ETBS">
+                                                                ETBS (EthBits ETBS Token)
+                                                            </option>
+                                                            <option value="ETG">
+                                                                ETG (Ethereum Gold)
+                                                            </option>
+                                                            <option value="ETH">
+                                                                ETH (Ethereum)
+                                                            </option>
+                                                            <option value="ETHD">
+                                                                ETHD (Ethereum Dark)
+                                                            </option>
+                                                            <option value="ETHOS">
+                                                                ETHOS (Ethos)
+                                                            </option>
+                                                            <option value="ETK">
+                                                                ETK (EnergiToken)
+                                                            </option>
+                                                            <option value="EURS">
+                                                                EURS (STASIS EURS Token)
+                                                            </option>
+                                                            <option value="EVC">
+                                                                EVC (EventChain)
+                                                            </option>
+                                                            <option value="EVE">
+                                                                EVE (Devery.io)
+                                                            </option>
+                                                            <option value="EVN">
+                                                                EVN (Envion)
+                                                            </option>
+                                                            <option value="EVX">
+                                                                EVX (Everex)
+                                                            </option>
+                                                            <option value="EXC">
+                                                                EXC (Eximchain Token)
+                                                            </option>
+                                                            <option value="EXMR">
+                                                                EXMR (EXMR)
+                                                            </option>
+                                                            <option value="EXRN">
+                                                                EXRN (EXRP Network)
+                                                            </option>
+                                                            <option value="EXY">
+                                                                EXY (Experty)
+                                                            </option>
+                                                            <option value="EZT">
+                                                                EZT (EZToken)
+                                                            </option>
+                                                            <option value="FACE">
+                                                                FACE (Faceter)
+                                                            </option>
+                                                            <option value="FDZ">
+                                                                FDZ (Friendz Coin)
+                                                            </option>
+                                                            <option value="FID">
+                                                                FID (Fidelium Token)
+                                                            </option>
+                                                            <option value="FKX">
+                                                                FKX (Knoxstertoken)
+                                                            </option>
+                                                            <option value="FLIXX">
+                                                                FLIXX (Flixx)
+                                                            </option>
+                                                            <option value="FLP">
+                                                                FLP (FLIP)
+                                                            </option>
+                                                            <option value="FLUZ">
+                                                                FLUZ (FluzFluz)
+                                                            </option>
+                                                            <option value="FND">
+                                                                FND (FundRequest)
+                                                            </option>
+                                                            <option value="FNTB">
+                                                                FNTB (FinTab)
+                                                            </option>
+                                                            <option value="FOOD">
+                                                                FOOD (FoodCoin)
+                                                            </option>
+                                                            <option value="FOTA">
+                                                                FOTA (FOTA)
+                                                            </option>
+                                                            <option value="FRV">
+                                                                FRV (Fitrova)
+                                                            </option>
+                                                            <option value="FSN">
+                                                                FSN (Fusion)
+                                                            </option>
+                                                            <option value="FT">
+                                                                FT (Fabric Token)
+                                                            </option>
+                                                            <option value="FTX">
+                                                                FTX (FintruX Network)
+                                                            </option>
+                                                            <option value="FTXT">
+                                                                FTXT (FUTURAX)
+                                                            </option>
+                                                            <option value="FUCK">
+                                                                FUCK (Finally Usable Crypto Karma)
+                                                            </option>
+                                                            <option value="FUEL">
+                                                                FUEL (Fuel Token)
+                                                            </option>
+                                                            <option value="FUN">
+                                                                FUN (FunFair)
+                                                            </option>
+                                                            <option value="FXT">
+                                                                FXT (FuzeX)
+                                                            </option>
+                                                            <option value="FYN">
+                                                                FYN (FundYourselfNow)
+                                                            </option>
+                                                            <option value="FYP">
+                                                                FYP (Flyp.me)
+                                                            </option>
+                                                            <option value="GAT">
+                                                                GAT (GAT)
+                                                            </option>
+                                                            <option value="GEM">
+                                                                GEM (Gems)
+                                                            </option>
+                                                            <option value="GEN">
+                                                                GEN (DAOstack)
+                                                            </option>
+                                                            <option value="GENE">
+                                                                GENE (GENE TOKEN)
+                                                            </option>
+                                                            <option value="GET">
+                                                                GET (Guaranteed Entrance Token)
+                                                            </option>
+                                                            <option value="GIM">
+                                                                GIM (Gimli)
+                                                            </option>
+                                                            <option value="GLA">
+                                                                GLA (Gladius)
+                                                            </option>
+                                                            <option value="GMT">
+                                                                GMT (Global Messaging Token)
+                                                            </option>
+                                                            <option value="GNO">
+                                                                GNO (Gnosis)
+                                                            </option>
+                                                            <option value="GNT">
+                                                                GNT (Golem)
+                                                            </option>
+                                                            <option value="GNX">
+                                                                GNX (Genaro X)
+                                                            </option>
+                                                            <option value="GOT">
+                                                                GOT (GoToken)
+                                                            </option>
+                                                            <option value="GRID">
+                                                                GRID (GRID)
+                                                            </option>
+                                                            <option value="GRMD">
+                                                                GRMD (GreenMed)
+                                                            </option>
+                                                            <option value="GTC">
+                                                                GTC (Game.com Token)
+                                                            </option>
+                                                            <option value="GTO">
+                                                                GTO (Gifto)
+                                                            </option>
+                                                            <option value="GUESS">
+                                                                GUESS (GUESS)
+                                                            </option>
+                                                            <option value="Guppy">
+                                                                Guppy (Guppy)
+                                                            </option>
+                                                            <option value="GVT">
+                                                                GVT (Genesis Vision)
+                                                            </option>
+                                                            <option value="HAT">
+                                                                HAT (Hawala)
+                                                            </option>
+                                                            <option value="HAV">
+                                                                HAV (Havven)
+                                                            </option>
+                                                            <option value="HB">
+                                                                HB (HeartBout)
+                                                            </option>
+                                                            <option value="HBT">
+                                                                HBT (Hubiits)
+                                                            </option>
+                                                            <option value="HBZ">
+                                                                HBZ (Helbiz)
+                                                            </option>
+                                                            <option value="HDG">
+                                                                HDG (Hedge)
+                                                            </option>
+                                                            <option value="HER">
+                                                                HER (HeroNodeToken)
+                                                            </option>
+                                                            <option value="HGT">
+                                                                HGT (HelloGold)
+                                                            </option>
+                                                            <option value="HKN">
+                                                                HKN (Hacken)
+                                                            </option>
+                                                            <option value="HMC">
+                                                                HMC (Hms Token)
+                                                            </option>
+                                                            <option value="HMQ">
+                                                                HMQ (Humaniq)
+                                                            </option>
+                                                            <option value="HOLO">
+                                                                HOLO (HoloToken)
+                                                            </option>
+                                                            <option value="HORSE">
+                                                                HORSE (Horse)
+                                                            </option>
+                                                            <option value="HOT">
+                                                                HOT (Hydro Protocol)
+                                                            </option>
+                                                            <option value="HPB">
+                                                                HPB (HPBCoin)
+                                                            </option>
+                                                            <option value="HST">
+                                                                HST (Decision Token)
+                                                            </option>
+                                                            <option value="HT">
+                                                                HT (HuobiToken)
+                                                            </option>
+                                                            <option value="HUR">
+                                                                HUR (Hurify Token)
+                                                            </option>
+                                                            <option value="HVN">
+                                                                HVN (Hive Project Token)
+                                                            </option>
+                                                            <option value="HYDRO">
+                                                                HYDRO (Hydro)
+                                                            </option>
+                                                            <option value="ICE">
+                                                                ICE (IDICE)
+                                                            </option>
+                                                            <option value="ICN">
+                                                                ICN (ICONOMI)
+                                                            </option>
+                                                            <option value="IcoCoin">
+                                                                IcoCoin (ICO)
+                                                            </option>
+                                                            <option value="ICX">
+                                                                ICX (ICON)
+                                                            </option>
+                                                            <option value="IDH">
+                                                                IDH (indaHash Coin)
+                                                            </option>
+                                                            <option value="IDXM">
+                                                                IDXM (IDEX Membership)
+                                                            </option>
+                                                            <option value="iETH">
+                                                                iETH (iEthereum)
+                                                            </option>
+                                                            <option value="IFT">
+                                                                IFT (Feed)
+                                                            </option>
+                                                            <option value="IG">
+                                                                IG (IG)
+                                                            </option>
+                                                            <option value="IHT">
+                                                                IHT (I HOUSE TOKEN)
+                                                            </option>
+                                                            <option value="IND">
+                                                                IND (Indorse)
+                                                            </option>
+                                                            <option value="ING">
+                                                                ING (IUNGO)
+                                                            </option>
+                                                            <option value="INS">
+                                                                INS (INS)
+                                                            </option>
+                                                            <option value="INSTAR">
+                                                                INSTAR (Insights Network)
+                                                            </option>
+                                                            <option value="INT">
+                                                                INT (Internet Node Token)
+                                                            </option>
+                                                            <option value="INV">
+                                                                INV (Invacio Coin)
+                                                            </option>
+                                                            <option value="INXT">
+                                                                INXT (Internxt)
+                                                            </option>
+                                                            <option value="IOST">
+                                                                IOST (IOSToken)
+                                                            </option>
+                                                            <option value="IPL">
+                                                                IPL (InsurePal)
+                                                            </option>
+                                                            <option value="IPSX">
+                                                                IPSX (IPSX)
+                                                            </option>
+                                                            <option value="ITC">
+                                                                ITC (IOT Chain)
+                                                            </option>
+                                                            <option value="ITT">
+                                                                ITT (Intelligent Trading Technologies)
+                                                            </option>
+                                                            <option value="IVY">
+                                                                IVY (IvyKoin Public Network Tokens)
+                                                            </option>
+                                                            <option value="IXT">
+                                                                IXT (iXledger)
+                                                            </option>
+                                                            <option value="J8T">
+                                                                J8T (J8T)
+                                                            </option>
+                                                            <option value="JC">
+                                                                JC (Jesus Coin)
+                                                            </option>
+                                                            <option value="JET">
+                                                                JET (Jetcoin)
+                                                            </option>
+                                                            <option value="JNT">
+                                                                JNT (Jibrel Network Token)
+                                                            </option>
+                                                            <option value="JOT">
+                                                                JOT (Jury.Online)
+                                                            </option>
+                                                            <option value="KEY">
+                                                                KEY (SelfKey)
+                                                            </option>
+                                                            <option value="KICK">
+                                                                KICK (KickCoin)
+                                                            </option>
+                                                            <option value="KIN">
+                                                                KIN (Kin)
+                                                            </option>
+                                                            <option value="KIND">
+                                                                KIND (Kind Ads Token)
+                                                            </option>
+                                                            <option value="KNC">
+                                                                KNC (KyberNetwork)
+                                                            </option>
+                                                            <option value="KNDC">
+                                                                KNDC (KanadeCoin)
+                                                            </option>
+                                                            <option value="KNT">
+                                                                KNT (Kora Network Token)
+                                                            </option>
+                                                            <option value="KRL">
+                                                                KRL (Kryll)
+                                                            </option>
+                                                            <option value="KWATT">
+                                                                KWATT (4NEW)
+                                                            </option>
+                                                            <option value="LA">
+                                                                LA (LAtoken)
+                                                            </option>
+                                                            <option value="LALA">
+                                                                LALA (LALA)
+                                                            </option>
+                                                            <option value="LATX">
+                                                                LATX (LatiumX)
+                                                            </option>
+                                                            <option value="LBA">
+                                                                LBA (LibraToken)
+                                                            </option>
+                                                            <option value="LCS">
+                                                                LCS (LocalCoinSwap Cryptoshare)
+                                                            </option>
+                                                            <option value="LCT">
+                                                                LCT (LendConnect)
+                                                            </option>
+                                                            <option value="LEDU">
+                                                                LEDU (Education)
+                                                            </option>
+                                                            <option value="LEND">
+                                                                LEND (EthLend)
+                                                            </option>
+                                                            <option value="LEV">
+                                                                LEV (Leverj)
+                                                            </option>
+                                                            <option value="LGD">
+                                                                LGD (Legends)
+                                                            </option>
+                                                            <option value="LGO">
+                                                                LGO (LGO)
+                                                            </option>
+                                                            <option value="LIKE">
+                                                                LIKE (LikeCoin)
+                                                            </option>
+                                                            <option value="LINK">
+                                                                LINK (ChainLink Token)
+                                                            </option>
+                                                            <option value="LKY">
+                                                                LKY (Linkey Token)
+                                                            </option>
+                                                            <option value="LNC">
+                                                                LNC (Linker Coin)
+                                                            </option>
+                                                            <option value="LND">
+                                                                LND (Lendingblock)
+                                                            </option>
+                                                            <option value="LNK">
+                                                                LNK (Link Platform)
+                                                            </option>
+                                                            <option value="LOC">
+                                                                LOC (LockTrip)
+                                                            </option>
+                                                            <option value="LOCI">
+                                                                LOCI (LOCIcoin)
+                                                            </option>
+                                                            <option value="LOOM">
+                                                                LOOM (Loom)
+                                                            </option>
+                                                            <option value="LRC">
+                                                                LRC (Loopring)
+                                                            </option>
+                                                            <option value="LUN">
+                                                                LUN (Lunyr)
+                                                            </option>
+                                                            <option value="LYM">
+                                                                LYM (Lympo)
+                                                            </option>
+                                                            <option value="MAN">
+                                                                MAN (MATRIX AI Network)
+                                                            </option>
+                                                            <option value="MANA">
+                                                                MANA (Decentraland)
+                                                            </option>
+                                                            <option value="MCAP">
+                                                                MCAP (MCAP)
+                                                            </option>
+                                                            <option value="MCI">
+                                                                MCI (Musiconomi)
+                                                            </option>
+                                                            <option value="MCO">
+                                                                MCO (Monaco)
+                                                            </option>
+                                                            <option value="MDA">
+                                                                MDA (Moeda Loyalty Points)
+                                                            </option>
+                                                            <option value="MDT">
+                                                                MDT (Measurable Data Token)
+                                                            </option>
+                                                            <option value="MEDX">
+                                                                MEDX (MEDX TOKEN)
+                                                            </option>
+                                                            <option value="MESH">
+                                                                MESH (BlockMesh)
+                                                            </option>
+                                                            <option value="MET">
+                                                                MET (Metronome)
+                                                            </option>
+                                                            <option value="METM">
+                                                                METM (MetaMorph)
+                                                            </option>
+                                                            <option value="MFG">
+                                                                MFG (SyncFab Smart Manufacturing Blockchain)
+                                                            </option>
+                                                            <option value="MFT">
+                                                                MFT (Mainframe Token)
+                                                            </option>
+                                                            <option value="MFTU">
+                                                                MFTU (MFTU)
+                                                            </option>
+                                                            <option value="MGO">
+                                                                MGO (MobileGo)
+                                                            </option>
+                                                            <option value="MITx">
+                                                                MITx (Morpheus Infrastructure Token)
+                                                            </option>
+                                                            <option value="MKR">
+                                                                MKR (Maker)
+                                                            </option>
+                                                            <option value="MLN">
+                                                                MLN (Melon)
+                                                            </option>
+                                                            <option value="MNE">
+                                                                MNE (minereum)
+                                                            </option>
+                                                            <option value="MNTP">
+                                                                MNTP (Goldmint MNT Prelaunch Token)
+                                                            </option>
+                                                            <option value="MOC">
+                                                                MOC (Moss Coin)
+                                                            </option>
+                                                            <option value="MOD">
+                                                                MOD (Modum Token)
+                                                            </option>
+                                                            <option value="MOT">
+                                                                MOT (MOT)
+                                                            </option>
+                                                            <option value="MRK">
+                                                                MRK (Mark)
+                                                            </option>
+                                                            <option value="MSP">
+                                                                MSP (Mothership)
+                                                            </option>
+                                                            <option value="MTC">
+                                                                MTC (Medical Token Currency)
+                                                            </option>
+                                                            <option value="MTCMESH">
+                                                                MTCMESH (MTC Mesh Network)
+                                                            </option>
+                                                            <option value="MTH">
+                                                                MTH (Monetha)
+                                                            </option>
+                                                            <option value="MTL">
+                                                                MTL (Metal)
+                                                            </option>
+                                                            <option value="MTN">
+                                                                MTN (MedToken)
+                                                            </option>
+                                                            <option value="MTX">
+                                                                MTX (Matryx)
+                                                            </option>
+                                                            <option value="MWAT">
+                                                                MWAT (RED MWAT)
+                                                            </option>
+                                                            <option value="MYST">
+                                                                MYST (Mysterium)
+                                                            </option>
+                                                            <option value="NANJ">
+                                                                NANJ (NANJCOIN)
+                                                            </option>
+                                                            <option value="NAS">
+                                                                NAS (Nebulas)
+                                                            </option>
+                                                            <option value="NAVI">
+                                                                NAVI (NaviToken)
+                                                            </option>
+                                                            <option value="NBC">
+                                                                NBC (Niobium)
+                                                            </option>
+                                                            <option value="nCash">
+                                                                nCash (NucleusVision)
+                                                            </option>
+                                                            <option value="NCC">
+                                                                NCC (NeuroChain Clausius)
+                                                            </option>
+                                                            <option value="NCT">
+                                                                NCT (Nectar)
+                                                            </option>
+                                                            <option value="NDC">
+                                                                NDC (NEVERDIE)
+                                                            </option>
+                                                            <option value="NEC">
+                                                                NEC (Ethfinex Nectar Token)
+                                                            </option>
+                                                            <option value="NET">
+                                                                NET (NimiqNetwork)
+                                                            </option>
+                                                            <option value="NEU">
+                                                                NEU (Neumark)
+                                                            </option>
+                                                            <option value="NEWB">
+                                                                NEWB (Newbium)
+                                                            </option>
+                                                            <option value="NEXO">
+                                                                NEXO (Nexo)
+                                                            </option>
+                                                            <option value="NGC">
+                                                                NGC (NAGA Coin)
+                                                            </option>
+                                                            <option value="NIO">
+                                                                NIO (Autonio)
+                                                            </option>
+                                                            <option value="NMR">
+                                                                NMR (Numeraire)
+                                                            </option>
+                                                            <option value="NOAH">
+                                                                NOAH (NOAHCOIN)
+                                                            </option>
+                                                            <option value="NOBS">
+                                                                NOBS (No BS Crypto)
+                                                            </option>
+                                                            <option value="NOX">
+                                                                NOX (Nitro)
+                                                            </option>
+                                                            <option value="NPER">
+                                                                NPER (NPER)
+                                                            </option>
+                                                            <option value="NPX">
+                                                                NPX (NapoleonX)
+                                                            </option>
+                                                            <option value="NPXS">
+                                                                NPXS (Pundi X Token)
+                                                            </option>
+                                                            <option value="NTK">
+                                                                NTK (NeuroToken)
+                                                            </option>
+                                                            <option value="NTO">
+                                                                NTO (Fujinto)
+                                                            </option>
+                                                            <option value="NULS">
+                                                                NULS (Nuls)
+                                                            </option>
+                                                            <option value="nUSD">
+                                                                nUSD (Nomin USD)
+                                                            </option>
+                                                            <option value="NxC">
+                                                                NxC (Nexium)
+                                                            </option>
+                                                            <option value="NXX">
+                                                                NXX (Nexxus)
+                                                            </option>
+                                                            <option value="OAX">
+                                                                OAX (OpenANX)
+                                                            </option>
+                                                            <option value="OCN">
+                                                                OCN (OCoin)
+                                                            </option>
+                                                            <option value="ODEM">
+                                                                ODEM (ODEM Token)
+                                                            </option>
+                                                            <option value="OLE">
+                                                                OLE (Olive)
+                                                            </option>
+                                                            <option value="OMG">
+                                                                OMG (OmiseGO)
+                                                            </option>
+                                                            <option value="OMX">
+                                                                OMX (Omix)
+                                                            </option>
+                                                            <option value="ONL">
+                                                                ONL (On.Live)
+                                                            </option>
+                                                            <option value="OPT">
+                                                                OPT (Opus)
+                                                            </option>
+                                                            <option value="OPTI">
+                                                                OPTI (OptiToken)
+                                                            </option>
+                                                            <option value="ORI">
+                                                                ORI (Origami Network)
+                                                            </option>
+                                                            <option value="ORS">
+                                                                ORS (OriginSport Token)
+                                                            </option>
+                                                            <option value="OTN">
+                                                                OTN (Open Trading Network)
+                                                            </option>
+                                                            <option value="PAI">
+                                                                PAI (PCHAIN)
+                                                            </option>
+                                                            <option value="PAL">
+                                                                PAL (PolicyPal Network)
+                                                            </option>
+                                                            <option value="PARETO">
+                                                                PARETO (Pareto Network Token)
+                                                            </option>
+                                                            <option value="PAT">
+                                                                PAT (PATRON)
+                                                            </option>
+                                                            <option value="PAY">
+                                                                PAY (TenXPay)
+                                                            </option>
+                                                            <option value="PBL">
+                                                                PBL (Pebbles)
+                                                            </option>
+                                                            <option value="PCH">
+                                                                PCH (POPCHAIN CASH)
+                                                            </option>
+                                                            <option value="PFR">
+                                                                PFR (PayFair)
+                                                            </option>
+                                                            <option value="PHI">
+                                                                PHI (PHI Token)
+                                                            </option>
+                                                            <option value="PIX">
+                                                                PIX (PIX)
+                                                            </option>
+                                                            <option value="PKT">
+                                                                PKT (Playkey)
+                                                            </option>
+                                                            <option value="PLAY">
+                                                                PLAY (Herocoin)
+                                                            </option>
+                                                            <option value="PLBT">
+                                                                PLBT (Polybius)
+                                                            </option>
+                                                            <option value="PLR">
+                                                                PLR (PILLAR)
+                                                            </option>
+                                                            <option value="PLU">
+                                                                PLU (Pluton)
+                                                            </option>
+                                                            <option value="PMA">
+                                                                PMA (PumaPay)
+                                                            </option>
+                                                            <option value="PMNT">
+                                                                PMNT (Paymon)
+                                                            </option>
+                                                            <option value="POA20">
+                                                                POA20 (POA ERC20 on Foundation)
+                                                            </option>
+                                                            <option value="POE">
+                                                                POE (Po.et)
+                                                            </option>
+                                                            <option value="POLL">
+                                                                POLL (ClearPoll)
+                                                            </option>
+                                                            <option value="POLY">
+                                                                POLY (Polymath)
+                                                            </option>
+                                                            <option value="POS">
+                                                                POS (PoSToken)
+                                                            </option>
+                                                            <option value="POWR">
+                                                                POWR (PowerLedger)
+                                                            </option>
+                                                            <option value="PPP">
+                                                                PPP (PayPie)
+                                                            </option>
+                                                            <option value="PPT">
+                                                                PPT (Populous)
+                                                            </option>
+                                                            <option value="PRE">
+                                                                PRE (Presearch)
+                                                            </option>
+                                                            <option value="PRG">
+                                                                PRG (PRG)
+                                                            </option>
+                                                            <option value="PRIX">
+                                                                PRIX (Privatix)
+                                                            </option>
+                                                            <option value="PRL">
+                                                                PRL (Oyster Pearl)
+                                                            </option>
+                                                            <option value="PRO">
+                                                                PRO (Propy)
+                                                            </option>
+                                                            <option value="PST">
+                                                                PST (Primas Token)
+                                                            </option>
+                                                            <option value="PTOY">
+                                                                PTOY (Patientory)
+                                                            </option>
+                                                            <option value="PTT">
+                                                                PTT (Proton Token)
+                                                            </option>
+                                                            <option value="PYLNT">
+                                                                PYLNT (Pylon)
+                                                            </option>
+                                                            <option value="QASH">
+                                                                QASH (QASH)
+                                                            </option>
+                                                            <option value="QAU">
+                                                                QAU (Quantum)
+                                                            </option>
+                                                            <option value="QBIT">
+                                                                QBIT (Qubitica)
+                                                            </option>
+                                                            <option value="QKC">
+                                                                QKC (QuarkChain Token)
+                                                            </option>
+                                                            <option value="QRL">
+                                                                QRL (QRL)
+                                                            </option>
+                                                            <option value="QSP">
+                                                                QSP (Quantstamp)
+                                                            </option>
+                                                            <option value="QUN">
+                                                                QUN (QunQunCommunities)
+                                                            </option>
+                                                            <option value="QVT">
+                                                                QVT (QVT)
+                                                            </option>
+                                                            <option value="R">
+                                                                R (Revain)
+                                                            </option>
+                                                            <option value="RCN">
+                                                                RCN (RipioCreditNetwork)
+                                                            </option>
+                                                            <option value="RCT">
+                                                                RCT (realchain)
+                                                            </option>
+                                                            <option value="RDN">
+                                                                RDN (Raiden)
+                                                            </option>
+                                                            <option value="REAL">
+                                                                REAL (Real Estate Asset Ledger)
+                                                            </option>
+                                                            <option value="REBL">
+                                                                REBL (Rebellious)
+                                                            </option>
+                                                            <option value="REF">
+                                                                REF (RefToken)
+                                                            </option>
+                                                            <option value="REM">
+                                                                REM (REMME)
+                                                            </option>
+                                                            <option value="REN">
+                                                                REN (Republic)
+                                                            </option>
+                                                            <option value="REP">
+                                                                REP (Reputation)
+                                                            </option>
+                                                            <option value="REQ">
+                                                                REQ (Request)
+                                                            </option>
+                                                            <option value="REX">
+                                                                REX (imbrex)
+                                                            </option>
+                                                            <option value="RFR">
+                                                                RFR (Refereum)
+                                                            </option>
+                                                            <option value="RGS">
+                                                                RGS (Rusgas)
+                                                            </option>
+                                                            <option value="RHOC">
+                                                                RHOC (RHOC)
+                                                            </option>
+                                                            <option value="RIYA">
+                                                                RIYA (Etheriya)
+                                                            </option>
+                                                            <option value="RKT">
+                                                                RKT (Rock)
+                                                            </option>
+                                                            <option value="RLC">
+                                                                RLC (RLC)
+                                                            </option>
+                                                            <option value="RLT">
+                                                                RLT (RouletteToken)
+                                                            </option>
+                                                            <option value="RLX">
+                                                                RLX (Relex)
+                                                            </option>
+                                                            <option value="RMC">
+                                                                RMC (RemiCoin)
+                                                            </option>
+                                                            <option value="RMESH">
+                                                                RMESH (RightMesh Token)
+                                                            </option>
+                                                            <option value="RNT">
+                                                                RNT (OneRoot Network)
+                                                            </option>
+                                                            <option value="RNTB">
+                                                                RNTB (RNTB Token)
+                                                            </option>
+                                                            <option value="ROC">
+                                                                ROC (ROC)
+                                                            </option>
+                                                            <option value="ROCK2">
+                                                                ROCK2 (ICE ROCK MINING)
+                                                            </option>
+                                                            <option value="ROL">
+                                                                ROL (DICE)
+                                                            </option>
+                                                            <option value="RTB">
+                                                                RTB (AB-CHAIN RTB token)
+                                                            </option>
+                                                            <option value="RUFF">
+                                                                RUFF (RUFF)
+                                                            </option>
+                                                            <option value="RVT">
+                                                                RVT (RvT)
+                                                            </option>
+                                                            <option value="SALT">
+                                                                SALT (Salt)
+                                                            </option>
+                                                            <option value="SAN">
+                                                                SAN (SAN)
+                                                            </option>
+                                                            <option value="SCL">
+                                                                SCL (SOCIALL)
+                                                            </option>
+                                                            <option value="SCRL">
+                                                                SCRL (Scroll)
+                                                            </option>
+                                                            <option value="Seele">
+                                                                Seele (SeeleToken)
+                                                            </option>
+                                                            <option value="SENC">
+                                                                SENC (Sentinel Chain)
+                                                            </option>
+                                                            <option value="SENSE">
+                                                                SENSE (Sense)
+                                                            </option>
+                                                            <option value="SENT">
+                                                                SENT (SENTinel)
+                                                            </option>
+                                                            <option value="SGN">
+                                                                SGN (Signals Network Token)
+                                                            </option>
+                                                            <option value="SGP">
+                                                                SGP (SGPay)
+                                                            </option>
+                                                            <option value="SGR">
+                                                                SGR (Sugar Exchange)
+                                                            </option>
+                                                            <option value="SHIP">
+                                                                SHIP (ShipChain SHIP)
+                                                            </option>
+                                                            <option value="SHL">
+                                                                SHL (Oyster Shell)
+                                                            </option>
+                                                            <option value="SHP">
+                                                                SHP (Sharpe Platform Token)
+                                                            </option>
+                                                            <option value="SIG">
+                                                                SIG (Signals)
+                                                            </option>
+                                                            <option value="SKB">
+                                                                SKB (Sakura Bloom)
+                                                            </option>
+                                                            <option value="SKIN">
+                                                                SKIN (SkinCoin)
+                                                            </option>
+                                                            <option value="SKM">
+                                                                SKM (Skrumble Token)
+                                                            </option>
+                                                            <option value="SMS">
+                                                                SMS (Speed Mining Service)
+                                                            </option>
+                                                            <option value="SNC">
+                                                                SNC (SunContract)
+                                                            </option>
+                                                            <option value="SNGLS">
+                                                                SNGLS (SNGLS)
+                                                            </option>
+                                                            <option value="SNM">
+                                                                SNM (SONM)
+                                                            </option>
+                                                            <option value="SNOV">
+                                                                SNOV (Snovio)
+                                                            </option>
+                                                            <option value="SNT">
+                                                                SNT (StatusNetwork)
+                                                            </option>
+                                                            <option value="SNTR">
+                                                                SNTR (Silent Notary Token)
+                                                            </option>
+                                                            <option value="Soar">
+                                                                Soar (Soarcoin)
+                                                            </option>
+                                                            <option value="SOC">
+                                                                SOC (All Sports Coin)
+                                                            </option>
+                                                            <option value="SONIQ">
+                                                                SONIQ (Soniq Token)
+                                                            </option>
+                                                            <option value="SPANK">
+                                                                SPANK (SPANK)
+                                                            </option>
+                                                            <option value="SPD">
+                                                                SPD (SPINDLE)
+                                                            </option>
+                                                            <option value="SPF">
+                                                                SPF (SPF)
+                                                            </option>
+                                                            <option value="SPHTX">
+                                                                SPHTX (SPHTX)
+                                                            </option>
+                                                            <option value="SRN">
+                                                                SRN (SIRIN)
+                                                            </option>
+                                                            <option value="SS">
+                                                                SS (Sharder)
+                                                            </option>
+                                                            <option value="SSP">
+                                                                SSP (smartshare token)
+                                                            </option>
+                                                            <option value="ST">
+                                                                ST (Simple Token)
+                                                            </option>
+                                                            <option value="STAC">
+                                                                STAC (StarterCoin)
+                                                            </option>
+                                                            <option value="STK">
+                                                                STK (STK)
+                                                            </option>
+                                                            <option value="STORJ">
+                                                                STORJ (Storj)
+                                                            </option>
+                                                            <option value="STORM">
+                                                                STORM (Storm)
+                                                            </option>
+                                                            <option value="STQ">
+                                                                STQ (Storiqa)
+                                                            </option>
+                                                            <option value="STR">
+                                                                STR (Staker)
+                                                            </option>
+                                                            <option value="STRC">
+                                                                STRC (StarCredits)
+                                                            </option>
+                                                            <option value="STU">
+                                                                STU (Student Coin)
+                                                            </option>
+                                                            <option value="STX">
+                                                                STX (Stox)
+                                                            </option>
+                                                            <option value="SUB">
+                                                                SUB (Substratum)
+                                                            </option>
+                                                            <option value="SUR">
+                                                                SUR (Suretly)
+                                                            </option>
+                                                            <option value="SWM">
+                                                                SWM (Swarm Fund)
+                                                            </option>
+                                                            <option value="SWT">
+                                                                SWT (SwarmCity)
+                                                            </option>
+                                                            <option value="SXDT">
+                                                                SXDT (Spectre.ai D-Token)
+                                                            </option>
+                                                            <option value="SXUT">
+                                                                SXUT (Spectre.ai U-Token)
+                                                            </option>
+                                                            <option value="TAAS">
+                                                                TAAS (TAAS)
+                                                            </option>
+                                                            <option value="TAU">
+                                                                TAU (Lamden Tau)
+                                                            </option>
+                                                            <option value="TBX">
+                                                                TBX (Tokenbox)
+                                                            </option>
+                                                            <option value="TEAM">
+                                                                TEAM (TEAM)
+                                                            </option>
+                                                            <option value="TEL">
+                                                                TEL (Telcoin)
+                                                            </option>
+                                                            <option value="TEN">
+                                                                TEN (Tokenomy)
+                                                            </option>
+                                                            <option value="TFD">
+                                                                TFD (TE-FOOD)
+                                                            </option>
+                                                            <option value="TFL">
+                                                                TFL (TrueFlip)
+                                                            </option>
+                                                            <option value="TGAME">
+                                                                TGAME (TGAME)
+                                                            </option>
+                                                            <option value="TGT">
+                                                                TGT (Target Coin)
+                                                            </option>
+                                                            <option value="THETA">
+                                                                THETA (Theta Token)
+                                                            </option>
+                                                            <option value="THRT">
+                                                                THRT (ThriveToken)
+                                                            </option>
+                                                            <option value="TIE">
+                                                                TIE (TieToken)
+                                                            </option>
+                                                            <option value="TIG">
+                                                                TIG (Tigereum)
+                                                            </option>
+                                                            <option value="TIME">
+                                                                TIME (TIME)
+                                                            </option>
+                                                            <option value="TIO">
+                                                                TIO (Trade)
+                                                            </option>
+                                                            <option value="TIX">
+                                                                TIX (Blocktix)
+                                                            </option>
+                                                            <option value="TKA">
+                                                                TKA (Tokia)
+                                                            </option>
+                                                            <option value="TKN">
+                                                                TKN (TokenCard)
+                                                            </option>
+                                                            <option value="TKR">
+                                                                TKR (TKRToken)
+                                                            </option>
+                                                            <option value="TMT">
+                                                                TMT (Traxia Membership Token)
+                                                            </option>
+                                                            <option value="TNS">
+                                                                TNS (Transcodium)
+                                                            </option>
+                                                            <option value="TNT">
+                                                                TNT (Tierion Network Token)
+                                                            </option>
+                                                            <option value="TOMO">
+                                                                TOMO (Tomocoin)
+                                                            </option>
+                                                            <option value="TRAC">
+                                                                TRAC (Trace)
+                                                            </option>
+                                                            <option value="TRAK">
+                                                                TRAK (TrakInvest Token)
+                                                            </option>
+                                                            <option value="TRCT">
+                                                                TRCT (Tracto)
+                                                            </option>
+                                                            <option value="TRST">
+                                                                TRST (Trustcoin)
+                                                            </option>
+                                                            <option value="TTC">
+                                                                TTC (TTC Protocol)
+                                                            </option>
+                                                            <option value="TTU">
+                                                                TTU (TaTaTu)
+                                                            </option>
+                                                            <option value="TUSD">
+                                                                TUSD (TrueUSD)
+                                                            </option>
+                                                            <option value="UBT">
+                                                                UBT (UniBright)
+                                                            </option>
+                                                            <option value="UCASH">
+                                                                UCASH (UCASH)
+                                                            </option>
+                                                            <option value="UET">
+                                                                UET (UselessEthereumToken)
+                                                            </option>
+                                                            <option value="UFR">
+                                                                UFR (Upfiring)
+                                                            </option>
+                                                            <option value="UKG">
+                                                                UKG (UnikoinGold)
+                                                            </option>
+                                                            <option value="UP">
+                                                                UP (UpToken)
+                                                            </option>
+                                                            <option value="UPP">
+                                                                UPP (SENTINEL PROTOCOL)
+                                                            </option>
+                                                            <option value="UQC">
+                                                                UQC (Uquid Coin)
+                                                            </option>
+                                                            <option value="UTK">
+                                                                UTK (UTRUST)
+                                                            </option>
+                                                            <option value="UTNP">
+                                                                UTNP (UTN-P: Universa Token)
+                                                            </option>
+                                                            <option value="UTT">
+                                                                UTT (United Traders Token)
+                                                            </option>
+                                                            <option value="UUU">
+                                                                UUU (UNetworkToken)
+                                                            </option>
+                                                            <option value="VEE">
+                                                                VEE (BLOCKv)
+                                                            </option>
+                                                            <option value="VEN">
+                                                                VEN (VeChain)
+                                                            </option>
+                                                            <option value="VERI">
+                                                                VERI (Veritaseum)
+                                                            </option>
+                                                            <option value="VIB">
+                                                                VIB (VIB)
+                                                            </option>
+                                                            <option value="VIBE">
+                                                                VIBE (Vibe Coin)
+                                                            </option>
+                                                            <option value="VIEW">
+                                                                VIEW (VIEW)
+                                                            </option>
+                                                            <option value="VIN">
+                                                                VIN (VIN)
+                                                            </option>
+                                                            <option value="VIT">
+                                                                VIT (Vice)
+                                                            </option>
+                                                            <option value="VITE">
+                                                                VITE (ViteToken)
+                                                            </option>
+                                                            <option value="VIU">
+                                                                VIU (VIU)
+                                                            </option>
+                                                            <option value="VOISE">
+                                                                VOISE (VOISE)
+                                                            </option>
+                                                            <option value="VRS">
+                                                                VRS (Veros)
+                                                            </option>
+                                                            <option value="VSL">
+                                                                VSL (vSlice)
+                                                            </option>
+                                                            <option value="VZT">
+                                                                VZT (Vezt)
+                                                            </option>
+                                                            <option value="WAB">
+                                                                WAB (WABnetwork)
+                                                            </option>
+                                                            <option value="WaBi">
+                                                                WaBi (WaBi)
+                                                            </option>
+                                                            <option value="WAX">
+                                                                WAX (WAX Token)
+                                                            </option>
+                                                            <option value="WEB">
+                                                                WEB (Webcoin)
+                                                            </option>
+                                                            <option value="WILD">
+                                                                WILD (WILD Token)
+                                                            </option>
+                                                            <option value="WIN">
+                                                                WIN (WCOIN)
+                                                            </option>
+                                                            <option value="WINGS">
+                                                                WINGS (WINGS)
+                                                            </option>
+                                                            <option value="WISH">
+                                                                WISH (MyWish)
+                                                            </option>
+                                                            <option value="WPR">
+                                                                WPR (WePower)
+                                                            </option>
+                                                            <option value="WRC">
+                                                                WRC (Worldcore)
+                                                            </option>
+                                                            <option value="WTC">
+                                                                WTC (Walton)
+                                                            </option>
+                                                            <option value="WTT">
+                                                                WTT (WTT)
+                                                            </option>
+                                                            <option value="X8X">
+                                                                X8X (X8XToken)
+                                                            </option>
+                                                            <option value="Xaurum">
+                                                                Xaurum (Xaurum)
+                                                            </option>
+                                                            <option value="XBL">
+                                                                XBL (Billionaire Token)
+                                                            </option>
+                                                            <option value="XDCE">
+                                                                XDCE (XinFin XDCE)
+                                                            </option>
+                                                            <option value="XES">
+                                                                XES (Proxeus)
+                                                            </option>
+                                                            <option value="XET">
+                                                                XET (ETERNAL TOKEN)
+                                                            </option>
+                                                            <option value="XMCT">
+                                                                XMCT (XMED Chain Token)
+                                                            </option>
+                                                            <option value="XMX">
+                                                                XMX (XMAX)
+                                                            </option>
+                                                            <option value="XNK">
+                                                                XNK (Ink Protocol)
+                                                            </option>
+                                                            <option value="XNN">
+                                                                XNN (XENON)
+                                                            </option>
+                                                            <option value="XOV">
+                                                                XOV (XOVBank)
+                                                            </option>
+                                                            <option value="XPA">
+                                                                XPA (XPlay)
+                                                            </option>
+                                                            <option value="XRL">
+                                                                XRL (Rialto)
+                                                            </option>
+                                                            <option value="XYO">
+                                                                XYO (XY Oracle)
+                                                            </option>
+                                                            <option value="YEE">
+                                                                YEE (Yee - A Blockchain-powered &amp; Cloud-based Socia)
+                                                            </option>
+                                                            <option value="YOYOW">
+                                                                YOYOW (YOYOW)
+                                                            </option>
+                                                            <option value="YUP">
+                                                                YUP (YUP)
+                                                            </option>
+                                                            <option value="ZAP">
+                                                                ZAP (ZAP TOKEN)
+                                                            </option>
+                                                            <option value="ZCN">
+                                                                ZCN (0chain)
+                                                            </option>
+                                                            <option value="ZCO">
+                                                                ZCO (Zebi Coin)
+                                                            </option>
+                                                            <option value="ZIL">
+                                                                ZIL (Zilliqa)
+                                                            </option>
+                                                            <option value="ZINC">
+                                                                ZINC (ZINC)
+                                                            </option>
+                                                            <option value="ZIPT">
+                                                                ZIPT (Zippie)
+                                                            </option>
+                                                            <option value="ZLA">
+                                                                ZLA (Zilla)
+                                                            </option>
+                                                            <option value="ZMN">
+                                                                ZMN (ZMINE Token)
+                                                            </option>
+                                                            <option value="ZPR">
+                                                                ZPR (ZPER)
+                                                            </option>
+                                                            <option value="ZRX">
+                                                                ZRX (ZRX)
+                                                            </option>
+                                                            <option value="ZSC">
+                                                                ZSC (ZeusShieldCoin)
+                                                            </option>
+                                                            <option value="ZXC">
+                                                                ZXC (0xcert Protocol Token)
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div id="exchanges" class="col-lg-6 col-xl-6 col-sm-12 col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="alert[exchange_name]">Exchange/Whale Wallet (optional)</label>
+                                                        <select id="exchange-select" name="alert[exchange_name]" class="form-control select2" data-toggle="select2">
+                                                            <option value="">All</option>
+                                                            <option value="Binance-wallet">
+                                                                Binance-wallet
+                                                            </option>
+                                                            <option value="bitcointalk.org">
+                                                                bitcointalk.org
+                                                            </option>
+                                                            <option value="Bitfinex">
+                                                                Bitfinex
+                                                            </option>
+                                                            <option value="Bitfinex-coldwallet">
+                                                                Bitfinex-coldwallet
+                                                            </option>
+                                                            <option value="bitmain.com">
+                                                                bitmain.com
+                                                            </option>
+                                                            <option value="BitMinter.com">
+                                                                BitMinter.com
+                                                            </option>
+                                                            <option value="Bitstamp-coldwallet">
+                                                                Bitstamp-coldwallet
+                                                            </option>
+                                                            <option value="Bittrex-coldwallet">
+                                                                Bittrex-coldwallet
+                                                            </option>
+                                                            <option value="Bittrex.com">
+                                                                Bittrex.com
+                                                            </option>
+                                                            <option value="BitX.co">
+                                                                BitX.co
+                                                            </option>
+                                                            <option value="Coincheck-coldwallet">
+                                                                Coincheck-coldwallet
+                                                            </option>
+                                                            <option value="F2Pool">
+                                                                F2Pool
+                                                            </option>
+                                                            <option value="Huobi.com">
+                                                                Huobi.com
+                                                            </option>
+                                                            <option value="Huobi-wallet">
+                                                                Huobi-wallet
+                                                            </option>
+                                                            <option value="Kraken.com">
+                                                                Kraken.com
+                                                            </option>
+                                                            <option value="MtGox-wallet">
+                                                                MtGox-wallet
+                                                            </option>
+                                                            <option value="NucleusMarket">
+                                                                NucleusMarket
+                                                            </option>
+                                                            <option value="Poloniex">
+                                                                Poloniex
+                                                            </option>
+                                                            <option value="Poloniex.com">
+                                                                Poloniex.com
+                                                            </option>
+                                                            <option value="SlushPool.com">
+                                                                SlushPool.com
+                                                            </option>
+                                                            <option value="Xapo.com">
+                                                                Xapo.com
+                                                            </option>
+                                                            <option value="Xapo.com-2">
+                                                                Xapo.com-2
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="threshold_select">Threshold</label>
+                                                <select class="form-control threshold-select" id="btc-select" name="alert[threshold]">
+                                                    <option value="100000000">$1,000,000 USD and up</option>
+                                                    <option value="300000000">$3,000,000 USD and up</option>
+                                                    <option value="500000000">$5,000,000 USD and up</option>
+                                                    <option value="700000000">$7,000,000 USD and up</option>
+                                                    <option value="1000000000">$10,000,000 USD and up</option>
+                                                </select>
+                                                <select class="form-control threshold-select d-none" id="eth-select">
+                                                    <option value="25000000">$250,000 USD and up</option>
+                                                    <option value="50000000">$500,000 USD and up</option>
+                                                    <option value="100000000">$1,000,000 USD and up</option>
+                                                    <option value="300000000">$3,000,000 USD and up</option>
+                                                    <option value="500000000">$5,000,000 USD and up</option>
+                                                </select>
+                                                <select class="form-control threshold-select d-none" id="token-select">
+                                                    <option value="2500000">$25,000 USD and up</option>
+                                                    <option value="10000000">$100,000 USD and up</option>
+                                                    <option value="25000000">$250,000 USD and up</option>
+                                                    <option value="100000000">$1,000,000 USD and up</option>
+                                                    <option value="300000000">$3,000,000 USD and up</option>
+                                                    <option value="500000000">$5,000,000 USD and up</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="emailaddress">Email address</label>
+                                                <input class="form-control" name="alert[email]" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="form-group mb-0 text-left col-lg-6 col-xl-6 col-md-6 col-sm-12 mt-2">
+                                                    <button class="btn btn-primary" type="submit">Create Alert</button>
+                                                </div>
+
+                                                <div class="col-lg-6 col-sm-12 col-md-6 col-xl-6">
+                                                    <p class="text-muted text-right mt-3">
+                                                        Already have an account?
+                                                        <a class="ml-1 btn btn-secondary" href="/login">
+                                                            <b>Login</b>
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                    </div>
+                                    </form>
+                                </div> <!-- end card-body -->
+                            </div>
+                            <!-- end card -->
+                        </div> <!-- end col -->
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end container -->
+            </div>
+            <!-- end page -->
+
+        </div> <!-- content -->
+        <!-- Footer Start -->
+        <footer class="footer bg-white">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        2018 © WhaleWatch - whalewatch.io
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-md-center footer-links d-none d-md-block">
+                            <a href="/terms-conditions">Terms And Conditions</a>
+                            <a href="/privacy-policy">Privacy Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end Footer -->
+        <!-- Hack for select2 -->
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+        <!-- end hack -->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121806751-3"></script>
+        <script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'UA-121806751-3');
+        </script>
+    </div>
+    </div>
+    <!-- END wrapper -->
+    <!-- App js -->
+    <script src="/js/app-7d29671177b0fbc49b975c9c5ef70f9b.js?vsn=d"></script>
+
+    <script type="text/javascript">
+      window.doorbellOptions = {
+        id: '9666',
+        appKey: 'OHKasiHa39GU07xMFywUTzPXHHNslnLXGOEN60EPxTq4nRJ5n1PKpjlCHJscNmQz'
+      };
+        (function(w, d, t) {
+        var hasLoaded = false;
+        function l() { if (hasLoaded) { return; } hasLoaded = true; window.doorbellOptions.windowLoaded = true; var g = d.createElement(t);g.id = 'doorbellScript';g.type = 'text/javascript';g.async = true;g.src = 'https://embed.doorbell.io/button/'+window.doorbellOptions['id']+'?t='+(new Date().getTime());(d.getElementsByTagName('head')[0]||d.getElementsByTagName('body')[0]).appendChild(g); }
+        if (w.attachEvent) { w.attachEvent('onload', l); } else if (w.addEventListener) { w.addEventListener('load', l, false); } else { l(); }
+        if (d.readyState == 'complete') { l(); }
+      }(window, document, 'script'));
+    </script>
+</body>
+</html>
